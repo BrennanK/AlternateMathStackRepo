@@ -4,6 +4,7 @@
 // Last Edited By: 
 // Last Edited Date: 1/21/2019
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EquationGen : MonoBehaviour
@@ -20,28 +21,42 @@ public class EquationGen : MonoBehaviour
     private float SecondNum;
     private float ThirdNum;
     private float tmpHolder;
+    public GameObject[] Boxes;
+    private Scene curScene;
+    private string SceneName;
 
-    private void Start()
+    public void Start ()
+         
     {
         EquationText = EquationText.GetComponent<Text>();
+        CallGrade();
 
-     CallGrade();
         currLevel = GameManager.Instance.currLevels;
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
+        Debug.Log("Update being Called");
+        Boxes = GameObject.FindGameObjectsWithTag("Draggable");
+
         Evaluate();
+      
         if (GameManager.Instance.currLevels != currLevel)
         {
             CallGrade();
-
+            Debug.Log("Load up Boxes into list");
+     
             currLevel = GameManager.Instance.currLevels;
         }
+
+   
+
+
     }
 
     public void CallGrade()
     {
+     
         switch (GameManager.Instance.currLevels) //Switch Statement for when a Grade was Selected.
         {
             case 0:
@@ -115,7 +130,7 @@ public class EquationGen : MonoBehaviour
 
     private void Kindergarden()
     {
-        firstNum = Random.Range(1, 6);
+        firstNum = Random.Range(1, 10);
         WriteEquation();
     }
 
@@ -181,7 +196,15 @@ public class EquationGen : MonoBehaviour
             if (!isFifth || !isFourth)//Because of order of operation 
             {
                 answer = tmpHolder;
-                WriteEquation();
+                if(answer <=((Boxes[0].GetComponent<NumberGen>().number + 5) + (Boxes[1].GetComponent<NumberGen>().number + 5) + (Boxes[2].GetComponent<NumberGen>().number + 5) + (Boxes[3].GetComponent<NumberGen>().number + 5) + (Boxes[4].GetComponent<NumberGen>().number + 5)
+                          + (Boxes[5].GetComponent<NumberGen>().number + 5) + (Boxes[6].GetComponent<NumberGen>().number + 5) + (Boxes[7].GetComponent<NumberGen>().number + 5) + (Boxes[8].GetComponent<NumberGen>().number + 5)))
+                    WriteEquation();
+                else
+                {
+                    Debug.Log("Exceeded Maximum possibility");
+                    firstNum = Random.Range(1, 11);
+                    SecondNum = Random.Range(1, 11);
+                }
             }
         }
         else if (index == 3)//Division 
@@ -192,7 +215,14 @@ public class EquationGen : MonoBehaviour
                 if (!isFifth || !isFourth)//Because of order of operation 
                 {
                     answer = tmpHolder;
-                    WriteEquation();
+                    if (answer <= ((Boxes[0].GetComponent<NumberGen>().number + 5) + (Boxes[1].GetComponent<NumberGen>().number + 5) + (Boxes[2].GetComponent<NumberGen>().number + 5) + (Boxes[3].GetComponent<NumberGen>().number + 5) + (Boxes[4].GetComponent<NumberGen>().number + 5)
+                                   + (Boxes[5].GetComponent<NumberGen>().number + 5) + (Boxes[6].GetComponent<NumberGen>().number + 5) + (Boxes[7].GetComponent<NumberGen>().number + 5) + (Boxes[8].GetComponent<NumberGen>().number + 5)))
+                        WriteEquation();
+                    else
+                    {
+                        firstNum = Random.Range(1, 11);
+                        SecondNum = Random.Range(1, 11);
+                    }
                 }
             }
             else//Keep changing until a divisible equation comes.
@@ -205,19 +235,37 @@ public class EquationGen : MonoBehaviour
         if (index2 == 0)//Second Addition
         {
             answer = tmpHolder + ThirdNum;
-            WriteEquation();
+            if (answer <= ((Boxes[0].GetComponent<NumberGen>().number * 5) + (Boxes[1].GetComponent<NumberGen>().number * 5) + (Boxes[2].GetComponent<NumberGen>().number * 5) + (Boxes[3].GetComponent<NumberGen>().number * 5) + (Boxes[4].GetComponent<NumberGen>().number * 5)
+                           + (Boxes[5].GetComponent<NumberGen>().number * 5) + (Boxes[6].GetComponent<NumberGen>().number * 5) + (Boxes[7].GetComponent<NumberGen>().number * 5) + (Boxes[8].GetComponent<NumberGen>().number * 5)))
+                WriteEquation();
+            else
+            {
+                ThirdNum = Random.Range(1, 11);
+            }
         }
         else if (index2 == 1) //Second Subtraction
         {
             if (tmpHolder > ThirdNum) // Preventing Negative Solution 
             {
                 answer = tmpHolder - ThirdNum;
-                WriteEquation();
+                if (answer <= ((Boxes[0].GetComponent<NumberGen>().number * 5) + (Boxes[1].GetComponent<NumberGen>().number * 5) + (Boxes[2].GetComponent<NumberGen>().number * 5) + (Boxes[3].GetComponent<NumberGen>().number * 5) + (Boxes[4].GetComponent<NumberGen>().number * 5)
+                               + (Boxes[5].GetComponent<NumberGen>().number * 5) + (Boxes[6].GetComponent<NumberGen>().number * 5) + (Boxes[7].GetComponent<NumberGen>().number * 5) + (Boxes[8].GetComponent<NumberGen>().number * 5)))
+                    WriteEquation();
+                else
+                {
+                    ThirdNum = Random.Range(1, 11);
+                }
             }
             else if (tmpHolder < ThirdNum)
             {
                 answer = ThirdNum - tmpHolder;
-                WriteEquation();
+                if (answer <= ((Boxes[0].GetComponent<NumberGen>().number * 5) + (Boxes[1].GetComponent<NumberGen>().number * 5) + (Boxes[2].GetComponent<NumberGen>().number * 5) + (Boxes[3].GetComponent<NumberGen>().number * 5) + (Boxes[4].GetComponent<NumberGen>().number * 5)
+                               + (Boxes[5].GetComponent<NumberGen>().number * 5) + (Boxes[6].GetComponent<NumberGen>().number * 5) + (Boxes[7].GetComponent<NumberGen>().number * 5) + (Boxes[8].GetComponent<NumberGen>().number * 5)))
+                    WriteEquation();
+                else
+                {
+                    ThirdNum = Random.Range(1, 11);
+                }
             }
             else//Preventing answer of 0
             {
@@ -227,14 +275,26 @@ public class EquationGen : MonoBehaviour
         else if (index2 == 2)//Second multiplication
         {
             answer = tmpHolder * ThirdNum;
-            WriteEquation();
+            if (answer <= ((Boxes[0].GetComponent<NumberGen>().number * 5) + (Boxes[1].GetComponent<NumberGen>().number * 5) + (Boxes[2].GetComponent<NumberGen>().number * 5) + (Boxes[3].GetComponent<NumberGen>().number * 5) + (Boxes[4].GetComponent<NumberGen>().number * 5)
+                           + (Boxes[5].GetComponent<NumberGen>().number * 5) + (Boxes[6].GetComponent<NumberGen>().number * 5) + (Boxes[7].GetComponent<NumberGen>().number * 5) + (Boxes[8].GetComponent<NumberGen>().number * 5)))
+                WriteEquation();
+            else
+            {
+                ThirdNum = Random.Range(1, 11);
+            }
         }
         else if (index2 == 3)//Second Division
         {
             if (tmpHolder % ThirdNum == 0)//Using Modulus to find if the two are divisible 
             {
                 answer = tmpHolder / ThirdNum;
-                WriteEquation();
+                if (answer <= ((Boxes[0].GetComponent<NumberGen>().number * 5) + (Boxes[1].GetComponent<NumberGen>().number * 5) + (Boxes[2].GetComponent<NumberGen>().number * 5) + (Boxes[3].GetComponent<NumberGen>().number * 5) + (Boxes[4].GetComponent<NumberGen>().number * 5)
+                               + (Boxes[5].GetComponent<NumberGen>().number * 5) + (Boxes[6].GetComponent<NumberGen>().number * 5) + (Boxes[7].GetComponent<NumberGen>().number * 5) + (Boxes[8].GetComponent<NumberGen>().number * 5)))
+                    WriteEquation();
+                else
+                {
+                    ThirdNum = Random.Range(1, 11);
+                }
             }
             else//Keep changing until a divisible number shows up
             {

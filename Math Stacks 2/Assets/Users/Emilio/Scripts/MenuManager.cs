@@ -16,6 +16,9 @@ public class MenuManager : MonoBehaviour
     public GameObject Labels;
     public GameObject GameOver;
 
+    public GameObject Staging;
+    public GameObject OptionsDash;
+
     public string mainMenu;
 
     public bool IsMainMenu;
@@ -36,6 +39,9 @@ public class MenuManager : MonoBehaviour
         if (IsMainMenu == true)
         {
             MainMenuActive();
+
+            Staging.SetActive(true);
+            OptionsDash.SetActive(false);
         }
 
         IsLabelsMenu = false;
@@ -110,13 +116,36 @@ public class MenuManager : MonoBehaviour
             //    CameraTransitions.SetBool("MenuTOGrade", false);
             //    CameraTransitions.SetBool("GradeTOMenu", true);
             //}
+            if (mainMenu == "Main Menu")
+            {
+                if (Staging.activeSelf == false)
+                {
+                    OptionsDash.SetActive(false);
+                    Staging.SetActive(true);
+                    MainMenu.SetActive(true);
+                }
+                else
+                {
+                    MainMenu.SetActive(true);
+                    GradeSelect.SetActive(false);
+                    Options.SetActive(false);
+                    PauseScreen.SetActive(false);
+                    InGameOverlay.SetActive(false);
+                    Labels.SetActive(false);
+                }
+            }
+            else
+            {
+                MainMenu.SetActive(true);
+                GradeSelect.SetActive(false);
+                Options.SetActive(false);
+                PauseScreen.SetActive(false);
+                InGameOverlay.SetActive(false);
+                Labels.SetActive(false);
 
-            MainMenu.SetActive(true);
-            GradeSelect.SetActive(false);
-            Options.SetActive(false);
-            PauseScreen.SetActive(false);
-            InGameOverlay.SetActive(false);
-            Labels.SetActive(false);
+                OptionsDash.SetActive(false);
+                Staging.SetActive(true);
+            }
 
             CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
             if (CameraTransitions.GetBool("MenuTOGrade") == true)
@@ -175,12 +204,22 @@ public class MenuManager : MonoBehaviour
 
     public void OptionsActive()
     {
-
         if (IsMainMenu == true)
         {
-            if (Options.activeSelf == false)
+            if (mainMenu == "Main Menu")
             {
-                
+                MainMenu.SetActive(false);
+                GradeSelect.SetActive(false);
+                Options.SetActive(false);
+                PauseScreen.SetActive(false);
+                InGameOverlay.SetActive(false);
+                Labels.SetActive(false);
+
+                Staging.SetActive(false);
+                OptionsDash.SetActive(true);
+            }
+            else
+            {
                 MainMenu.SetActive(false);
                 GradeSelect.SetActive(false);
                 Options.SetActive(true);
@@ -191,23 +230,13 @@ public class MenuManager : MonoBehaviour
         }
         else if (IsMainMenu == false)
         {
-            if (Options != enabled)
-            {
-                Options.SetActive(true);
-            }
+            PauseScreen.SetActive(false);
+            Options.SetActive(true);
         }
-
-        MainMenu.SetActive(false);
-        GradeSelect.SetActive(false);
-        Options.SetActive(true);
-        PauseScreen.SetActive(false);
-        InGameOverlay.SetActive(false);
-        Labels.SetActive(false);
     }
 
     public void PauseScreenActive()
     {
-
         if (PauseScreen.activeSelf == false)
         {
             PauseScreen.SetActive(true);

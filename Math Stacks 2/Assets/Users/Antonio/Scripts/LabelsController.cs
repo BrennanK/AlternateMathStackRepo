@@ -64,11 +64,12 @@ public class LabelsController : MonoBehaviour
                         hit.collider.gameObject.GetComponentInChildren<Canvas>().enabled = true;
                     }
 
-                    if (stmp.gameobjectHere == true)
+                    if (stmp.gameobjectHere == true) //Antonio You have A False Positive coming out of here, This is why you can't place stamps on other boxes
                     {
                         oldLabel = hit.collider.gameObject.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
-                        hit.collider.gameObject.GetComponent<BoxController>().startingValue = hit.collider.gameObject.GetComponent<BoxController>().oldValue;
+                    
                         Destroy(oldLabel);
+                        hit.collider.GetComponent<NumberGen>().InvokeEvaluation();
                         stmp.gameobjectHere = false;
                     }
 
@@ -78,16 +79,17 @@ public class LabelsController : MonoBehaviour
                         transform.position = hitObject.transform.position;
                         gameObject.transform.SetParent(hitObject.transform);
 
-
-                        hit.collider.gameObject.GetComponent<BoxController>().canEvaluate = true;
+                        hit.collider.GetComponent<NumberGen>().InvokeEvaluation();
+                     
                         stopAll = true;
-                        isLabelMoving = false;
+                      
                         stmp.canMake = true;
                         stmp.gameobjectHere = true;
                     }
                 }
             }
         }
+        isLabelMoving = false;
     }
 
     private void Raycasts()

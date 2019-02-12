@@ -4,6 +4,7 @@
 // Last Edited By: 
 // Last Edited Date: 1/21/2019
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class NumberGen : MonoBehaviour
@@ -12,7 +13,10 @@ public class NumberGen : MonoBehaviour
     private TextMeshProUGUI numText;
 
     private GameManager GM;
-
+    int newValue;
+    string operant;
+    int temp;
+    public int oldValue;
     private void Awake()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -31,7 +35,7 @@ public class NumberGen : MonoBehaviour
         {
             number = 0;
         }
-
+        oldValue = number;
         numText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
@@ -41,12 +45,20 @@ public class NumberGen : MonoBehaviour
         {
             number = 0;
         }
-    }
-
-    private void FixedUpdate()
-    {
         numText.text = number.ToString();
     }
 
+  
 
+    public void InvokeEvaluation()
+    {
+ 
+        newValue = GetComponentInChildren<Stamp>().stampNumber;
+        operant = GetComponentInChildren<Stamp>().stampOpperator;
+
+        string equation = oldValue + operant + newValue;
+        ExpressionEvaluator.Evaluate<int>(equation, out temp);
+
+        number = temp;
+    }
 }

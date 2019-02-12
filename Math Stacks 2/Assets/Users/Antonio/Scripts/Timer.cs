@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    private float time = 180f;
+    public float time = 180f;
     [SerializeField] private Text timerText;
     [SerializeField] private Slider slider;
 
@@ -28,6 +28,7 @@ public class Timer : MonoBehaviour
 
         if (time <= 0)
         {
+            time = 180f;
             mng.GameOverActive();
         }
     }

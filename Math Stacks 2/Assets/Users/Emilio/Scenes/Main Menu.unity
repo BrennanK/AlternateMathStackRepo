@@ -305,11 +305,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 15.000001, y: -179.99998, z: 0}
+--- !u!1 &345721059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8071283191630638872, guid: bd2b9ae751a4a084fa3a52e919541009,
+    type: 3}
+  m_PrefabInstance: {fileID: 893756248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &345721060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8071283191630638875, guid: bd2b9ae751a4a084fa3a52e919541009,
     type: 3}
   m_PrefabInstance: {fileID: 893756248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &446515243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7383968612139190658, guid: 3b9e5c9523306364288792d506c852ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1663504474}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &446515244 stripped
 Transform:
@@ -1044,6 +1056,14 @@ PrefabInstance:
       propertyPath: CameraTransitions
       value: 
       objectReference: {fileID: 16650064}
+    - target: {fileID: 1739184909, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
+      propertyPath: Staging
+      value: 
+      objectReference: {fileID: 446515243}
+    - target: {fileID: 1739184909, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
+      propertyPath: OptionsDash
+      value: 
+      objectReference: {fileID: 345721059}
     - target: {fileID: 4529097795813926921, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
         type: 3}
       propertyPath: m_Color.r
@@ -1072,7 +1092,7 @@ PrefabInstance:
     - target: {fileID: 1149078596247046246, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.1
+      value: 1.1000061
       objectReference: {fileID: 0}
     - target: {fileID: 1149078596247046246, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
         type: 3}

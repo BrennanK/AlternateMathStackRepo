@@ -563,6 +563,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 74
       objectReference: {fileID: 0}
+    - target: {fileID: 6026799151897747857, guid: bd2b9ae751a4a084fa3a52e919541009,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1395427583755770877, guid: bd2b9ae751a4a084fa3a52e919541009,
         type: 3}
       propertyPath: m_ProbeAnchor
@@ -925,6 +930,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TruckFrame 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 1293f90ebdc54c7448f41815db89b64a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300002, guid: 1293f90ebdc54c7448f41815db89b64a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb147c3d1a2d87f4dafbbb31ce391266, type: 2}
     - target: {fileID: 400006, guid: 1293f90ebdc54c7448f41815db89b64a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -969,6 +982,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 1293f90ebdc54c7448f41815db89b64a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4022b07666c90744f924877b5154cb48, type: 2}
+    - target: {fileID: 2300004, guid: 1293f90ebdc54c7448f41815db89b64a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 27875477057256a418fd096c3057957b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1293f90ebdc54c7448f41815db89b64a, type: 3}
 --- !u!1 &2127291626

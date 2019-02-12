@@ -29,10 +29,7 @@ public class BoxController : MonoBehaviour
     private Camera cam;
     private Canvas canvas;
 
-    public bool canEvaluate;
     public bool isBeingHeld;
-
-   
     
     private void Awake()
     {
@@ -48,9 +45,6 @@ public class BoxController : MonoBehaviour
         _tape = FindObjectOfType<Tape>().GetComponent<Tape>();
         mng = GameObject.Find("UI Screens").GetComponent<MenuManager>();
 
-        canEvaluate = false;
-   
-
         canvas = GetComponentInChildren<Canvas>();
 
         if (this.gameObject.GetComponent<BlankID>() != null)
@@ -63,11 +57,6 @@ public class BoxController : MonoBehaviour
     {
         if(!isBeingHeld)
         rb.velocity += new Vector3(0f, -9.81f * Time.fixedDeltaTime, 0f);
-    }
-
-    private void Update()
-    {
-       // Reevaluate();
     }
 
     private void OnMouseDown()
@@ -123,17 +112,4 @@ public class BoxController : MonoBehaviour
 
         isBeingHeld = false;
     }
-
-    //private void Reevaluate()
-    //{
-    //    if (canEvaluate)
-    //    {
-    //        Invoke("InvokeEvaluation", 0.1f);
-    //        canEvaluate = false;
-    //    }
-    //}
-
-   
-
-    
 }

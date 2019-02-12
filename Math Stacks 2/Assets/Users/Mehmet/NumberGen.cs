@@ -16,7 +16,10 @@ public class NumberGen : MonoBehaviour
     int newValue;
     string operant;
     int temp;
+    public bool canEvaluate;
+    public bool hasStamp;
     public int oldValue;
+
     private void Awake()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -35,6 +38,10 @@ public class NumberGen : MonoBehaviour
         {
             number = 0;
         }
+
+        canEvaluate = false;
+        hasStamp = false;
+
         oldValue = number;
         numText = GetComponentInChildren<TextMeshProUGUI>();
     }
@@ -45,14 +52,23 @@ public class NumberGen : MonoBehaviour
         {
             number = 0;
         }
+
         numText.text = number.ToString();
+
+        Reevaluate();
     }
 
-  
+    private void Reevaluate()
+    {
+        if (canEvaluate)
+        {
+            Invoke("InvokeEvaluation", 0.1f);
+            canEvaluate = false;
+        }
+    }
 
     public void InvokeEvaluation()
     {
- 
         newValue = GetComponentInChildren<Stamp>().stampNumber;
         operant = GetComponentInChildren<Stamp>().stampOpperator;
 

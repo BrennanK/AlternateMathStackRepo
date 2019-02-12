@@ -40,7 +40,7 @@ public class AnswerChecker : MonoBehaviour
 
             if (i == boxes.Count)//stop at the list length
             {
-                boxes.Clear();
+                
                 answer = numbers.Sum();
                 Debug.Log(answer);
                 CheckAnswer();
@@ -76,6 +76,7 @@ public class AnswerChecker : MonoBehaviour
                 correctAnswers++;
                 scre.score += 10;
                 timer.time += 10f;
+                boxes.Clear();
 
                 if (correctAnswers >= 10)
                 {

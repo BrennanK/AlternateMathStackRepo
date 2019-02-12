@@ -19,6 +19,7 @@ public class AnswerChecker : MonoBehaviour
     private Timer timer;
     public List<int> numbers = new List<int>();
     private int correctAnswers = 0;
+    bool changeColor;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class AnswerChecker : MonoBehaviour
         spwn = GameObject.Find("SpawnEngine").GetComponent<BoxSpawner>();
         stmp = GameObject.Find("UI Screens").GetComponent<StampGen>();
         scre = GameObject.Find("Score Bar").GetComponent<Score>();
+        changeColor = false;
     }
 
     private void FixedUpdate()
@@ -47,6 +49,15 @@ public class AnswerChecker : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (changeColor)
+        {
+            ColorSwapper();
+        }
+        
+    }
+
     private void CheckAnswer()//Checks the answer with what is being placed on the pallet
     {
         Check = true;
@@ -54,8 +65,10 @@ public class AnswerChecker : MonoBehaviour
         {
             if (answer == EG.answer)
             {
+                EG.EquationText.color = Color.green;
                 Debug.Log("Correct");
                 GameManager.Instance.CorrectAnswer();
+                changeColor = true;
                 numbers.Clear();
                 Check = false;
                 spwn.DestroyBoxes();
@@ -72,7 +85,9 @@ public class AnswerChecker : MonoBehaviour
 
             else
             {
+                EG.EquationText.color = Color.red;
                 Debug.Log("Wrong");
+                changeColor = true;
                 numbers.Clear();
                 answer = 0;
                 timer.time -= 5f;
@@ -107,5 +122,10 @@ public class AnswerChecker : MonoBehaviour
                 Debug.Log("added box into list");
             }
         }
+    }
+
+    private void ColorSwapper()
+    {
+        EG.EquationText.color = Color.Lerp(EG.EquationText.color, Color.white, 0.01f);
     }
 }

@@ -10,10 +10,10 @@ public class BoxSpawner : MonoBehaviour
     [SerializeField] GameObject[] boxChoice;
     [SerializeField]GameObject[] boxLocations;
     GameObject currentValueBox;
-    BoxController[] oldBoxes = new BoxController[6];
-  public  GameObject[] RandomBoxes = new GameObject[6];
+    BoxController[] oldBoxes = new BoxController[9];
+  public  GameObject[] RandomBoxes = new GameObject[9];
 
-    int boxCount = 6;
+    int boxCount = 9;
     int number = 0;
     int index;
     private int amountTick;

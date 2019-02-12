@@ -24,15 +24,25 @@ public class GroupedBox : MonoBehaviour
             BoxChildren = GetComponentsInChildren<NumberGen>();
             if (LabelsController.LCInstance.isLabelMoving)
             {
+                Destroy(this.gameObject.GetComponent<BoxController>());
                 Destroy(this.gameObject.GetComponent<Rigidbody>());
                 Destroy(this.gameObject.GetComponent<BoxCollider>());
-                Destroy(this.gameObject.GetComponent<BoxController>());
-                foreach (var box in BoxChildren)
+                if (GetComponent<BoxCollider>() == null)
                 {
-                    box.gameObject.AddComponent<BoxController>();
-                    box.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+                    foreach (var box in BoxChildren)
+                    {
+                        if (box.GetComponent<BoxController>() == null)
+                        {
+                            box.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+                            box.gameObject.AddComponent<Rigidbody>();
+                            box.GetComponent<Rigidbody>().constraints =
+                                RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+
+                            box.gameObject.AddComponent<BoxController>();
+                        }
+                    }
                 }
-          
+
             }
             else
             {
@@ -40,8 +50,11 @@ public class GroupedBox : MonoBehaviour
                 {
                     foreach (var box in BoxChildren)
                     {
-                        box.gameObject.GetComponent<BoxCollider>().isTrigger = false;
-                        Destroy( box.gameObject.GetComponent<BoxController>());
+                        Destroy(box.gameObject.GetComponent<BoxController>());
+                        Destroy(box.gameObject.GetComponent<Rigidbody>());
+                 
+                        box.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+                        
                     }
                 }
                 else
@@ -54,8 +67,9 @@ public class GroupedBox : MonoBehaviour
                     this.gameObject.AddComponent<BoxController>();
                     foreach (var box in BoxChildren)
                     {
-                        box.gameObject.GetComponent<BoxCollider>().isTrigger = false;
-                    Destroy(box.gameObject.GetComponent<BoxController>());
+                        Destroy(box.gameObject.GetComponent<BoxController>());
+                        Destroy(box.gameObject.GetComponent<Rigidbody>());
+                        box.gameObject.GetComponent<BoxCollider>().isTrigger = true;
                     }
                 }
             }

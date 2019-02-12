@@ -30,12 +30,9 @@ public class BoxController : MonoBehaviour
     private Canvas canvas;
 
     public bool canEvaluate;
+    public bool isBeingHeld;
 
-    public int startingValue;
-    public int oldValue;
-    int newValue;
-    string operant;
-    int temp;
+   
     
     private void Awake()
     {
@@ -52,7 +49,7 @@ public class BoxController : MonoBehaviour
         mng = GameObject.Find("UI Screens").GetComponent<MenuManager>();
 
         canEvaluate = false;
-        oldValue = GetComponent<NumberGen>().number;
+   
 
         canvas = GetComponentInChildren<Canvas>();
 
@@ -64,12 +61,13 @@ public class BoxController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!isBeingHeld)
         rb.velocity += new Vector3(0f, -9.81f * Time.fixedDeltaTime, 0f);
     }
 
     private void Update()
     {
-        Reevaluate();
+       // Reevaluate();
     }
 
     private void OnMouseDown()
@@ -101,6 +99,8 @@ public class BoxController : MonoBehaviour
                 transform.position = WorldPosition;
             }
         }
+
+        isBeingHeld = true;
     }
 
     private void OnMouseUp()
@@ -120,28 +120,20 @@ public class BoxController : MonoBehaviour
                 }
             }
         }
+
+        isBeingHeld = false;
     }
 
-    private void Reevaluate()
-    {
-        if (canEvaluate)
-        {
-            Invoke("InvokeEvaluation", 0.1f);
-            canEvaluate = false;
-        }
-    }
+    //private void Reevaluate()
+    //{
+    //    if (canEvaluate)
+    //    {
+    //        Invoke("InvokeEvaluation", 0.1f);
+    //        canEvaluate = false;
+    //    }
+    //}
 
-    public void InvokeEvaluation()
-    {
-        //startingValue = GetComponent<NumberGen>().number;
-        newValue = GetComponentInChildren<Stamp>().stampNumber;
-        operant = GetComponentInChildren<Stamp>().stampOpperator;
-
-        string equation = oldValue + operant + newValue;
-        ExpressionEvaluator.Evaluate<int>(equation, out temp);
-
-        GetComponent<NumberGen>().number = temp;
-    }
+   
 
     
 }

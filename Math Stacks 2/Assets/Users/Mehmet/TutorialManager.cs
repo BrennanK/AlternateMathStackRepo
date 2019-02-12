@@ -79,163 +79,41 @@ public class TutorialManager : MonoBehaviour
 
     private void FirstTutorial()
     {
-        if (!HasSeenK)
-        {
-            TutorialK.SetActive(true);
-        }
-        else if (!HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
+        if (!HasSeen1)
             TutorialFirst.SetActive(true);
-        }
         else
-        {
-            TutorialK.SetActive(false);
             TutorialFirst.SetActive(false);
-        }
     }
 
     private void SecondTutorial()
     {
-        if (!HasSeenK)
-        {
-            TutorialK.SetActive(true);
-        }
-        else if (!HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(true);
-        }
-        else if (!HasSeen2 && HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
+        if (!HasSeen2)
             TutorialSecond.SetActive(true);
-        }
         else
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
             TutorialSecond.SetActive(false);
-        }
     }
 
     private void ThirdTutorial()
     {
-        if (!HasSeenK)
-        {
-            TutorialK.SetActive(true);
-        }
-        else if (!HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(true);
-        }
-        else if (!HasSeen2 && HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
-            TutorialSecond.SetActive(true);
-        }
-        else if (!HasSeen3 && HasSeen2 && HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
-            TutorialSecond.SetActive(false);
+        if (!HasSeen3)
             TutorialThird.SetActive(true);
-        }
         else
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
-            TutorialSecond.SetActive(false);
             TutorialThird.SetActive(false);
-        }
     }
 
     private void FourthTutorial()
     {
-        if (!HasSeenK)
-        {
-            TutorialK.SetActive(true);
-        }
-        else if (!HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(true);
-        }
-        else if (!HasSeen2 && HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
-            TutorialSecond.SetActive(true);
-        }
-        else if (!HasSeen3 && HasSeen2 && HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
-            TutorialSecond.SetActive(false);
-            TutorialThird.SetActive(true);
-        }
-        else if (!HasSeen4 && HasSeen3 && HasSeen2 && HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
-            TutorialSecond.SetActive(false);
-            TutorialThird.SetActive(false);
+        if (!HasSeen4)
             TutorialFourth.SetActive(true);
-        }
         else
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
-            TutorialSecond.SetActive(false);
-            TutorialThird.SetActive(false);
             TutorialFourth.SetActive(false);
-        }
     }
 
     private void FifthTutorial()
     {
-        if (!HasSeenK)
-        {
-            TutorialK.SetActive(true);
-        }
-        else if (!HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(true);
-        }
-        else if (!HasSeen2 && HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
-            TutorialSecond.SetActive(true);
-        }
-        else if (!HasSeen3 && HasSeen2 && HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
-            TutorialSecond.SetActive(false);
-            TutorialThird.SetActive(true);
-        }
-        else if (!HasSeen5 && HasSeen4 && HasSeen3 && HasSeen2 && HasSeen1 && HasSeenK)
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
-            TutorialSecond.SetActive(false);
-            TutorialThird.SetActive(false);
-            TutorialFourth.SetActive(false);
+        if (!HasSeen5)
             TutorialFifth.SetActive(true);
-        }
         else
-        {
-            TutorialK.SetActive(false);
-            TutorialFirst.SetActive(false);
-            TutorialSecond.SetActive(false);
-            TutorialThird.SetActive(false);
-            TutorialFourth.SetActive(false);
             TutorialFifth.SetActive(false);
-        }
     }
 }

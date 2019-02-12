@@ -38,7 +38,7 @@ public class LabelsController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (_tape.isTapeOn != true)
+        if (_tape.isTapeOn != true && enabled)
         {
             distance = Camera.main.WorldToScreenPoint(transform.position);
             positionX = Input.mousePosition.x - distance.x;
@@ -48,7 +48,7 @@ public class LabelsController : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (_tape.isTapeOn != true)
+        if (_tape.isTapeOn != true && enabled)
         {
             Raycasts();
             var CurrentPosition =
@@ -86,6 +86,8 @@ public class LabelsController : MonoBehaviour
                     hit.collider.GetComponent<NumberGen>().hasStamp = true;
                     stopAll = true;
                     stmp.canMake = true;
+
+                    GetComponent<LabelsController>().enabled = false;
                 }
             }
         }

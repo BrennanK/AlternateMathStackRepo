@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -937,7 +937,7 @@ PrefabInstance:
     - target: {fileID: 2300002, guid: 1293f90ebdc54c7448f41815db89b64a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fb147c3d1a2d87f4dafbbb31ce391266, type: 2}
+      objectReference: {fileID: 2100000, guid: fa2a5ea84cb7b92459a7ce735827f712, type: 2}
     - target: {fileID: 400006, guid: 1293f90ebdc54c7448f41815db89b64a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -985,13 +985,77 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 1293f90ebdc54c7448f41815db89b64a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4022b07666c90744f924877b5154cb48, type: 2}
+      objectReference: {fileID: 2100000, guid: ffc57636672009649a1ed311f1cd44a5, type: 2}
     - target: {fileID: 2300004, guid: 1293f90ebdc54c7448f41815db89b64a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 27875477057256a418fd096c3057957b, type: 2}
+      objectReference: {fileID: 2100000, guid: ec3ac76db54112948b23255641aca585, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1293f90ebdc54c7448f41815db89b64a, type: 3}
+--- !u!1 &2072938467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2072938469}
+  - component: {fileID: 2072938468}
+  m_Layer: 0
+  m_Name: Reflection Probe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!215 &2072938468
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072938467}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 0
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 1100, y: 1200, z: 1100}
+  m_BoxOffset: {x: 0, y: 0, z: 0}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
+--- !u!4 &2072938469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072938467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 98, z: 38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2127291626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1182,18 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2127291629}
+    - target: {fileID: 1739184909, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
+      propertyPath: CameraTransitions
+      value: 
+      objectReference: {fileID: 16650064}
+    - target: {fileID: 1739184909, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
+      propertyPath: Staging
+      value: 
+      objectReference: {fileID: 446515243}
+    - target: {fileID: 1739184909, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
+      propertyPath: OptionsDash
+      value: 
+      objectReference: {fileID: 345721059}
     - target: {fileID: 7116301629408781919, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1278,18 +1354,6 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2127291629}
-    - target: {fileID: 1739184909, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
-      propertyPath: CameraTransitions
-      value: 
-      objectReference: {fileID: 16650064}
-    - target: {fileID: 1739184909, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
-      propertyPath: Staging
-      value: 
-      objectReference: {fileID: 446515243}
-    - target: {fileID: 1739184909, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
-      propertyPath: OptionsDash
-      value: 
-      objectReference: {fileID: 345721059}
     - target: {fileID: 4529097795813926921, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
         type: 3}
       propertyPath: m_Color.r

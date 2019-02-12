@@ -16,12 +16,14 @@ public class AnswerChecker : MonoBehaviour
     public List<GameObject> boxes = new List<GameObject>();
     public bool Check;
     public EquationGen EG;
+    private Timer timer;
     public List<int> numbers = new List<int>();
     private int correctAnswers = 0;
 
     private void Start()
     {
         EG = FindObjectOfType<EquationGen>().GetComponent<EquationGen>();
+        timer = FindObjectOfType<Timer>();
         spwn = GameObject.Find("SpawnEngine").GetComponent<BoxSpawner>();
         stmp = GameObject.Find("UI Screens").GetComponent<StampGen>();
         scre = GameObject.Find("Score Bar").GetComponent<Score>();
@@ -60,6 +62,7 @@ public class AnswerChecker : MonoBehaviour
                 stmp.gameobjectHere = false;
                 correctAnswers++;
                 scre.score += 10;
+                timer.time += 10f;
 
                 if (correctAnswers >= 10)
                 {
@@ -72,6 +75,7 @@ public class AnswerChecker : MonoBehaviour
                 Debug.Log("Wrong");
                 numbers.Clear();
                 answer = 0;
+                timer.time -= 5f;
                 Check = false;
             }
         }

@@ -70,13 +70,14 @@ public class AnswerChecker : MonoBehaviour
                 GameManager.Instance.CorrectAnswer();
                 changeColor = true;
                 numbers.Clear();
+                boxes.Clear();
                 Check = false;
                 spwn.DestroyBoxes();
                 stmp.gameobjectHere = false;
                 correctAnswers++;
                 scre.score += 10;
                 timer.time += 10f;
-                boxes.Clear();
+               
 
                 if (correctAnswers >= 10)
                 {
@@ -92,13 +93,13 @@ public class AnswerChecker : MonoBehaviour
                 numbers.Clear();
                 answer = 0;
                 timer.time -= 5f;
-                boxes.Clear();
+                //boxes.Clear();
                 Check = false;
             }
         }
     }
 
-    private void OnTriggerStay(Collider col)//Adds boxes into a list when they enter the pallets trigger
+    private void OnTriggerEnter(Collider col)//Adds boxes into a list when they enter the pallets trigger
     {
         Debug.Log("something has been staying in this trigger");
         if (col.GetComponent<NumberGen>())

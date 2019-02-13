@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public float time = 180f;
+    public float maxTime = 180f;
+    public float time;
+
     [SerializeField] private Text timerText;
     [SerializeField] private Slider slider;
 
@@ -16,6 +18,7 @@ public class Timer : MonoBehaviour
     {
         mng = GameObject.Find("UI Screens").GetComponent<MenuManager>();
 
+        time = maxTime;
         slider.maxValue = 180f;
         slider.minValue = 0f;
     }
@@ -30,6 +33,11 @@ public class Timer : MonoBehaviour
         {
             time = 180f;
             mng.GameOverActive();
+        }
+
+        if (time >= 180f)
+        {
+            time = maxTime;
         }
     }
 }

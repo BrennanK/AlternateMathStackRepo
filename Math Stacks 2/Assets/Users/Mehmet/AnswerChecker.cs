@@ -42,7 +42,6 @@ public class AnswerChecker : MonoBehaviour
             {
                 
                 answer = numbers.Sum();
-                Debug.Log(answer);
                 CheckAnswer();
                 Check = false;
             }
@@ -66,7 +65,6 @@ public class AnswerChecker : MonoBehaviour
             if (answer == EG.answer)
             {
                 EG.EquationText.color = Color.green;
-                Debug.Log("Correct");
                 GameManager.Instance.CorrectAnswer();
                 changeColor = true;
                 numbers.Clear();
@@ -101,14 +99,11 @@ public class AnswerChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)//Adds boxes into a list when they enter the pallets trigger
     {
-        Debug.Log("something has been staying in this trigger");
         if (col.GetComponent<NumberGen>())
         {
-            Debug.Log("box entered trigger");
             if (!boxes.Contains(col.gameObject))
             {
                 boxes.Add(col.gameObject);
-                Debug.Log("added box into list");
             }
         }
     }

@@ -21,9 +21,8 @@ public class Stamp : MonoBehaviour
     }
 
     public void StampValue(string _Op, int _Num)
-    { Debug.Log(_Op);
+    {
         stampOpperator = _Op;
-        Debug.Log(_Num);
         stampNumber = _Num;
         stmptxt.text = stampOpperator + stampNumber.ToString();
         

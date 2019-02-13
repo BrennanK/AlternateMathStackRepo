@@ -14,6 +14,7 @@ public class NumberGen : MonoBehaviour
 
     private GameManager GM;
     int newValue;
+    int result;
     string operant;
     int temp;
     public bool canEvaluate;
@@ -72,9 +73,22 @@ public class NumberGen : MonoBehaviour
         newValue = GetComponentInChildren<Stamp>().stampNumber;
         operant = GetComponentInChildren<Stamp>().stampOpperator;
 
-        string equation = oldValue + operant + newValue;
-        ExpressionEvaluator.Evaluate<int>(equation, out temp);
+        switch (operant)
+        {
+            case "+":
+                result = oldValue + newValue;
+                break;
+            case "-":
+                result = oldValue - newValue;
+                break;
+            case "*":
+                result = oldValue * newValue;
+                break;
+            case "/":
+                result = oldValue / newValue;
+                break;
+        }
 
-        number = temp;
+        number = result;
     }
 }

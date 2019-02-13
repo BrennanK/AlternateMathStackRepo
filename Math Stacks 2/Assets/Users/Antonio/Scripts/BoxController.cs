@@ -70,8 +70,6 @@ public class BoxController : MonoBehaviour
             positionX = Input.mousePosition.x - distance.x;
             positionY = Input.mousePosition.y - distance.y;
         }
-
-        Debug.Log("ray hit"+ rayDown);
     }
 
     private void OnMouseDrag()

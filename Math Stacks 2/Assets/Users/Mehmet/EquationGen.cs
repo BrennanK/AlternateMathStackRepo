@@ -39,7 +39,6 @@ public class EquationGen : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log("Update being Called");
         Boxes = GameObject.FindGameObjectsWithTag("Draggable");
 
         Evaluate();
@@ -48,8 +47,6 @@ public class EquationGen : MonoBehaviour
         {
             answer = 0;
             CallGrade();
-            Debug.Log("Load up Boxes into list");
-     
             currLevel = GameManager.Instance.currLevels;
         }
 
@@ -171,12 +168,13 @@ public class EquationGen : MonoBehaviour
                 if (!isFifth || !isFourth)
                 {
                     answer = tmpHolder;
+
                     if (answer <= ((Boxes[0].GetComponent<NumberGen>().number) +
                                    (Boxes[1].GetComponent<NumberGen>().number) +
                                    (Boxes[2].GetComponent<NumberGen>().number) +
                                    (Boxes[3].GetComponent<NumberGen>().number) +
-                                   (Boxes[4].GetComponent<NumberGen>().number)
-                                   + (Boxes[5].GetComponent<NumberGen>().number) +
+                                   (Boxes[4].GetComponent<NumberGen>().number) + 
+                                   (Boxes[5].GetComponent<NumberGen>().number) +
                                    (Boxes[6].GetComponent<NumberGen>().number) +
                                    (Boxes[7].GetComponent<NumberGen>().number) +
                                    (Boxes[8].GetComponent<NumberGen>().number)))
@@ -441,7 +439,5 @@ public class EquationGen : MonoBehaviour
                 EquationText.text = "(" + firstNum + opperand[index] + SecondNum + ")" + opperand[index2] + ThirdNum;
             }
         }
-
-        Debug.Log("= " + answer);
     }
 }

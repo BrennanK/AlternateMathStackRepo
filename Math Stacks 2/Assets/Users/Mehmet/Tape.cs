@@ -78,6 +78,7 @@ public class Tape : MonoBehaviour
                     Box2 = hit.collider.gameObject;
                     Math();
                 }
+             
             }
         }
     }
@@ -186,6 +187,11 @@ public class Tape : MonoBehaviour
                     Box2 = null;
                     foreach (var box in boxes) box.GetComponent<BoxController>().enabled = true;
                     isTapeOn = false;
+                }
+                else
+                {
+                    Box2 = null;
+                    Box1 = null;
                 }
             }
         }

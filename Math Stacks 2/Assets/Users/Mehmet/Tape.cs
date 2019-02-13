@@ -52,7 +52,7 @@ public class Tape : MonoBehaviour
             if (hit.collider.gameObject.GetComponent<NumberGen>())
             {
                 Debug.Log("On Press hit a Box");
-                if (Box1 == null)
+                if (Box1 == null && hit.collider.gameObject != Box2)
                 {
                     Debug.Log("adding Box1");
                     Box1 = hit.collider.gameObject;
@@ -129,8 +129,7 @@ public class Tape : MonoBehaviour
 
             var Difx = Mathf.Abs(tmpx2 - tmpx1);
             var Dify = Mathf.Abs(tmpy2 - tmpy1);
-            boxes = FindObjectsOfType<BoxController>();
-            foreach (var box in boxes) box.GetComponent<BoxController>().enabled = false;
+
             if (Box1 != null && Box2 != null)
             {
                 var Distance = (Box1.transform.position - Box2.transform.position).magnitude;

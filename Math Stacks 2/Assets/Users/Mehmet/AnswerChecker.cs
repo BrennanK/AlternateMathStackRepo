@@ -92,12 +92,13 @@ public class AnswerChecker : MonoBehaviour
                 numbers.Clear();
                 answer = 0;
                 timer.time -= 5f;
+                boxes.Clear();
                 Check = false;
             }
         }
     }
 
-    private void OnTriggerEnter(Collider col)//Adds boxes into a list when they enter the pallets trigger
+    private void OnTriggerStay(Collider col)//Adds boxes into a list when they enter the pallets trigger
     {
         Debug.Log("something has been staying in this trigger");
         if (col.GetComponent<NumberGen>())
@@ -111,6 +112,7 @@ public class AnswerChecker : MonoBehaviour
         }
     }
 
+    
     private void OnTriggerExit(Collider col)//Removes boxes from the list when they leave the pallet trigger
     {
         Debug.Log("something has been staying in this trigger");

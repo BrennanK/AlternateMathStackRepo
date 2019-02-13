@@ -63,7 +63,7 @@ public class BoxController : MonoBehaviour
     {
         if (enabled && !mng.Paused && _tape.isTapeOn != true)
         {
-            gameObject.GetComponent<BoxCollider>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().isTrigger = true;
             SortingOrder = 2;
 
             distance = Camera.main.WorldToScreenPoint(transform.position);
@@ -97,7 +97,7 @@ public class BoxController : MonoBehaviour
         if (enabled && !mng.Paused && _tape.isTapeOn != true)
         {
             rb.useGravity = true;
-            gameObject.GetComponent<BoxCollider>().enabled = true;
+            gameObject.GetComponent<BoxCollider>().isTrigger = false;
             SortingOrder = 0;
 
             //checks if the ray hits something at 1 distance

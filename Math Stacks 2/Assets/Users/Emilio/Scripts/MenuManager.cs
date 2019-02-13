@@ -25,8 +25,8 @@ public class MenuManager : MonoBehaviour
     public bool IsLabelsMenu;
     public bool Paused;
 
-    [SerializeField]
-    private Animator CameraTransitions;
+    //[SerializeField]
+    //private Animator CameraTransitions;
 
     BoxController cont;
     //public AudioMixerSnapshot normal;
@@ -48,7 +48,7 @@ public class MenuManager : MonoBehaviour
         Paused = false;
         su = FindObjectOfType<GameManager>().GetComponent<SoundUpdater>();
 
-        CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
+        //CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
     }
 
     void Update()
@@ -56,10 +56,10 @@ public class MenuManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         mainMenu = currentScene.name;
 
-        if (mainMenu == "Main Menu")
-        {
-            CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
-        }
+        //if (mainMenu == "Main Menu")
+        //{
+        //    CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
+        //}
     }
 
     //public void Pause()
@@ -110,7 +110,6 @@ public class MenuManager : MonoBehaviour
     {
         if (MainMenu.activeSelf == false)
         {
-
             //if (CameraTransitions.GetBool("MenuTOGrade") == true)
             //{
             //    CameraTransitions.SetBool("MenuTOGrade", false);
@@ -147,19 +146,18 @@ public class MenuManager : MonoBehaviour
                 Staging.SetActive(true);
             }
 
-            CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
-            if (CameraTransitions.GetBool("MenuTOGrade") == true)
-            {
-                CameraTransitions.SetBool("MenuTOGrade", false);
-                CameraTransitions.SetBool("GradeTOMenu", true);
-            }
+            //CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
+            //if (CameraTransitions.GetBool("MenuTOGrade") == true)
+            //{
+            //    CameraTransitions.SetBool("MenuTOGrade", false);
+            //    CameraTransitions.SetBool("GradeTOMenu", true);
+            //}
         }
     }
 
     public void GradeSelectActive()
     {
-        CameraTransitions.SetBool("MenuTOGrade", true);
-
+        //CameraTransitions.SetBool("MenuTOGrade", true);
         if (GradeSelect.activeSelf == false)
         {
             MainMenu.SetActive(false);

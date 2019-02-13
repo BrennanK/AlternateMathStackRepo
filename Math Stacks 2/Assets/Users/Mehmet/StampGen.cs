@@ -62,10 +62,15 @@ public class StampGen : MonoBehaviour
                 stmp = FindObjectOfType<Stamp>().GetComponent<Stamp>();
                 stmp.StampValue(Operator, Number);
                 mng.Cancel();
+                Operator = "";
+                Number = 0;
+                //StampTag.text = "0";
                 canNum = false;
                 canOpp = false;
                 canMake = false;
             }
         }
     }
+
+
 }

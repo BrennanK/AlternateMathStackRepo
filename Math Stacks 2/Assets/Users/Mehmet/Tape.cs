@@ -155,6 +155,10 @@ public class Tape : MonoBehaviour
                     {
                         empty.AddComponent<BoxCollider>();
                         empty.GetComponent<BoxCollider>().size = new Vector3(2.12f, 1, 1.4f);
+                        Box1.transform.position = new Vector3(Box1.transform.position.x, empty.transform.position.y,
+                            Box1.transform.position.z);
+                        Box2.transform.position = new Vector3(Box2.transform.position.x, empty.transform.position.y,
+                            Box2.transform.position.z);
                         _tape = Instantiate(tape, empty.transform.position, Quaternion.identity);
                     }
                     else if (Difx < 1 && Dify > 1)

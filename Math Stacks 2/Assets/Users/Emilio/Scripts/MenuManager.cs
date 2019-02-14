@@ -32,7 +32,7 @@ public class MenuManager : MonoBehaviour
     //public AudioMixerSnapshot normal;
     //public AudioMixerSnapshot pause;
     public SoundUpdater su;
-
+    private TutorialK TK;
     // Start is called before the first frame update
     void Start()
     {
@@ -197,6 +197,16 @@ public class MenuManager : MonoBehaviour
             PauseScreen.SetActive(false);
             InGameOverlay.SetActive(false);
             Labels.SetActive(true);
+            GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
+            for (int i = 0; i < temp.Length; i++)
+            {
+
+                if (temp[i].name == "TutorialTwo")
+                {
+                    TK = temp[i].GetComponent<TutorialK>();
+                    TK.UseStamp();
+                }
+            }
         }
     }
 

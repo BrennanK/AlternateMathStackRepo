@@ -30,9 +30,10 @@ public class BoxController : MonoBehaviour
     private Canvas canvas;
 
     public bool isBeingHeld;
-    
+    private TutorialK TK;
     private void Awake()
     {
+        TK = FindObjectOfType<TutorialK>().GetComponent<TutorialK>();
         meshRenderer = gameObject.GetComponent<MeshRenderer>();
         meshRenderer.sortingLayerName = SortingLayerName;
         meshRenderer.sortingOrder = SortingOrder;
@@ -84,6 +85,7 @@ public class BoxController : MonoBehaviour
             if (WorldPosition.x > -7 && WorldPosition.y > 0.5 && WorldPosition.x < 7 && WorldPosition.y < 7.5)
             {
                 transform.position = WorldPosition;
+                TK.BoxMove();
             }
         }
 

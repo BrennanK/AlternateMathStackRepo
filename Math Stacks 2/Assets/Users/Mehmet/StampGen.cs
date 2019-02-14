@@ -6,6 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StampGen : MonoBehaviour
@@ -21,7 +22,7 @@ public class StampGen : MonoBehaviour
     private bool canOpp;
     public bool canMake;
     public bool gameobjectHere;
-
+    private TutorialK TK;
     void Awake()
     {
         StampTag = StampTag.GetComponent<Text>();
@@ -37,12 +38,23 @@ public class StampGen : MonoBehaviour
     {
         Number = _num;
         canNum = true;
+        GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
+        for (int i = 0; i < temp.Length; i++)
+        {
+
+            if (temp[i].name == "TutorialTwo")
+            {
+                TK = temp[i].GetComponent<TutorialK>();
+                TK.ClickNumber();
+            }
+        }
     }
 
     public void ChangeOperator(string _Op)
     {
         Operator = _Op;
         canOpp = true;
+        TK.ClickOperator();
     }
 
     void FixedUpdate()
@@ -68,6 +80,7 @@ public class StampGen : MonoBehaviour
                 canNum = false;
                 canOpp = false;
                 canMake = false;
+                TK.ClickCrate();
             }
         }
     }

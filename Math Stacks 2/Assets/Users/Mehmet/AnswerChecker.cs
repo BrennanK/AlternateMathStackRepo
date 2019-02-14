@@ -20,7 +20,12 @@ public class AnswerChecker : MonoBehaviour
     public List<int> numbers = new List<int>();
     private int correctAnswers = 0;
     bool changeColor;
+    private TutorialK TK;
 
+    private void Awake()
+    {
+        TK = FindObjectOfType<TutorialK>().GetComponent<TutorialK>();
+    }
     private void Start()
     {
         EG = FindObjectOfType<EquationGen>().GetComponent<EquationGen>();
@@ -106,6 +111,7 @@ public class AnswerChecker : MonoBehaviour
                 boxes.Add(col.gameObject);
             }
         }
+        TK.BoxEnter();
     }
 
     

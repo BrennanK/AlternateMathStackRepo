@@ -4,6 +4,7 @@
 // Last Edited By: 
 // Last Edited Date: 2/7/2019
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tape : MonoBehaviour
 {
@@ -26,9 +27,18 @@ public class Tape : MonoBehaviour
     private float tmpx2;
     private float tmpy1;
     private float tmpy2;
-
+    private TutorialK TK;
     public void EnableTapeMode()
     {
+        GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
+        for (int i = 0; i < temp.Length; i++)
+        {
+            if (temp[i].name == "TutorialTwo")
+            {
+                TK = temp[i].GetComponent<TutorialK>();
+                TK.UseTape();
+            }
+        }
         isTapeOn = !isTapeOn;
     }
 
@@ -77,6 +87,7 @@ public class Tape : MonoBehaviour
                     Debug.Log("adding Box2");
                     Box2 = hit.collider.gameObject;
                     Math();
+                    TK.SuccessUseTape();
                 }
              
             }

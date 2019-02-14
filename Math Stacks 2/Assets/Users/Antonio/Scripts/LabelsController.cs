@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LabelsController : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class LabelsController : MonoBehaviour
     private Ray rayForward;
 
     private bool stopAll;
-    
+    private TutorialK TK;
     void Awake()
     {
         if (LCInstance == null)
@@ -78,7 +79,16 @@ public class LabelsController : MonoBehaviour
                         Destroy(oldLabel);
                         hit.collider.GetComponent<NumberGen>().InvokeEvaluation();
                     }
+                    GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
+                    for (int i = 0; i < temp.Length; i++)
+                    {
 
+                        if (temp[i].name == "TutorialTwo")
+                        {
+                            TK = temp[i].GetComponent<TutorialK>();
+                            TK.PutStamp();
+                        }
+                    }
                     hitObject = hit.collider.gameObject.transform.GetChild(0).GetChild(0).gameObject;
                     transform.position = hitObject.transform.position;
                     gameObject.transform.SetParent(hitObject.transform);

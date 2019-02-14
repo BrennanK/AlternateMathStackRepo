@@ -4,6 +4,7 @@
 // Last Edited By: 
 // Last Edited Date: 2/7/2019
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Scissors : MonoBehaviour
 {
@@ -13,9 +14,19 @@ public class Scissors : MonoBehaviour
     private RaycastHit hit;
     public bool isScissorsOn;
     private Ray rayForward;
-
+    private TutorialK TK;
     public void EnableScissorMode()
     {
+        GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
+        for (int i = 0; i < temp.Length; i++)
+        {
+            
+            if (temp[i].name == "TutorialTwo")
+            {
+                TK = temp[i].GetComponent<TutorialK>();
+                TK.UseScissor();
+            }
+        }
         isScissorsOn = true;
     }
 
@@ -55,6 +66,7 @@ public class Scissors : MonoBehaviour
         GrpBox = null;
         BoxChildren = null;
         isScissorsOn = false;
+        TK.ScissorCut();
     }
 
     private void FixedUpdate()

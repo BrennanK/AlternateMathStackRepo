@@ -21,6 +21,8 @@ public class TutorialK : MonoBehaviour
     public float currentlevel = 0f;
     private GameManager GM;
     private bool trigger1 = true;//popupindex set
+    public int tutorialNum;
+    public bool test1 = true;
     void Start()
     {
         popUpIndex = 0;
@@ -29,6 +31,15 @@ public class TutorialK : MonoBehaviour
         bpanel.SetActive(true);
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentlevel = GM.currLevels;
+        PlayerData data = SaveSystem.LoadPlayer();
+        Debug.Log("Save number = " + data.tutorialI);
+        if ((int)currentlevel >= data.tutorialI)
+        {
+            intutorial = true;
+            bpanel.SetActive(false);
+            tutorialNum = (int)currentlevel + 1;
+            SaveSystem.SavePlayer(this);
+        }
     }
 
     // Update is called once per frame
@@ -104,14 +115,16 @@ public class TutorialK : MonoBehaviour
                 bpanel.SetActive(false);
             }
         }
-        /*
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (test1)
         {
-            popUpIndex++;
-
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                tutorialNum = 0;
+                SaveSystem.SavePlayer(this);
+                test1 = false;
+            }
         }
-        */
-       
+
     }
     IEnumerator WaitAndChange(float waitTime)
     {

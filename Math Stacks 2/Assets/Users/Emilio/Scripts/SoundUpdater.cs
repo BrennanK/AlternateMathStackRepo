@@ -10,8 +10,8 @@ public class SoundUpdater : MonoBehaviour
 {
     public AudioMixer audioMix;
     [SerializeField] Slider MasterSlider;
-    [SerializeField] Slider BGMSlider;
-    [SerializeField] Slider FXSlider;
+    [SerializeField] Slider[] BGMSlider;
+    [SerializeField] Slider[] FXSlider;
 
     public bool Muted;
     private bool menuPause;
@@ -23,15 +23,27 @@ public class SoundUpdater : MonoBehaviour
     */
     public AudioMixerSnapshot normal;
     public AudioMixerSnapshot pause;
+    private float bgmVolume;
+    private float fxVolume;
+    private bool volumeT = true;
+    private bool changing = false;
     private void Start()
     {
         MasterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
-        BGMSlider.value = PlayerPrefs.GetFloat("MusicVolume");
-        FXSlider.value = PlayerPrefs.GetFloat("SoundVolume");
-
+        BGMSlider[0].value = PlayerPrefs.GetFloat("MusicVolume");
+        FXSlider[0].value = PlayerPrefs.GetFloat("SoundVolume");
+        
+        
+        BGMSlider[1].value = PlayerPrefs.GetFloat("MusicVolume");
+        FXSlider[1].value = PlayerPrefs.GetFloat("SoundVolume");
+        
         audioMix.SetFloat("MasterVolume", MasterSlider.value);
-        audioMix.SetFloat("MusicVolume", BGMSlider.value);
-        audioMix.SetFloat("SoundVolume", FXSlider.value);
+        audioMix.SetFloat("MusicVolume", BGMSlider[0].value);
+        audioMix.SetFloat("SoundVolume", FXSlider[0].value);
+        /*
+        audioMix.SetFloat("MusicVolume", BGMSlider[1].value);
+        audioMix.SetFloat("SoundVolume", FXSlider[1].value);
+        */
         /*
         mu1 = MasterSlider.value;
         mu2 = BGMSlider.value;
@@ -43,10 +55,33 @@ public class SoundUpdater : MonoBehaviour
     {
         if (Muted == true)
         {
-            audioMix.SetFloat("MasterVolume", MasterSlider.value = -50f);
-            audioMix.SetFloat("MusicVolume", BGMSlider.value = -50f);
-            audioMix.SetFloat("SoundVolume", FXSlider.value = -50f);
+            if (volumeT)
+            {
+                bgmVolume = BGMSlider[0].value;
+                fxVolume = FXSlider[0].value;
+                bgmVolume = BGMSlider[1].value;
+                fxVolume = FXSlider[1].value;
+                volumeT = false;
+            }
+            //audioMix.SetFloat("MasterVolume", MasterSlider.value = -50f);
+            audioMix.SetFloat("MusicVolume", BGMSlider[0].value = -50f);
+            audioMix.SetFloat("SoundVolume", FXSlider[0].value = -50f);
+            /*
+            audioMix.SetFloat("MusicVolume", BGMSlider[1].value = -50f);
+            audioMix.SetFloat("SoundVolume", FXSlider[1].value = -50f);
+            */
         }
+
+        if (changing)
+        {
+            audioMix.SetFloat("MusicVolume", BGMSlider[0].value);
+            audioMix.SetFloat("MusicVolume", BGMSlider[1].value);
+            audioMix.SetFloat("SoundVolume", FXSlider[0].value);
+            audioMix.SetFloat("SoundVolume", FXSlider[1].value);
+            changing = false;
+        }
+
+
         /*
         if (menuPause == true)
         {
@@ -98,14 +133,35 @@ public class SoundUpdater : MonoBehaviour
 
     public void SetBGM()
     {
-        audioMix.SetFloat("MusicVolume", BGMSlider.value);
-        PlayerPrefs.SetFloat("MusicVolume", BGMSlider.value);
+        audioMix.SetFloat("MusicVolume", BGMSlider[0].value);
+        PlayerPrefs.SetFloat("MusicVolume", BGMSlider[0].value);
+        BGMSlider[1].value = BGMSlider[0].value;
+        changing = true;
+    }
+    public void SetBGMM()
+    {
+        
+        audioMix.SetFloat("MusicVolume", BGMSlider[1].value);
+        PlayerPrefs.SetFloat("MusicVolume", BGMSlider[1].value);
+        BGMSlider[0].value = BGMSlider[1].value;
+        changing = true;
     }
 
     public void SetFX()
     {
-        audioMix.SetFloat("SoundVolume", FXSlider.value);
-        PlayerPrefs.SetFloat("SoundVolume", FXSlider.value);
+        audioMix.SetFloat("SoundVolume", FXSlider[0].value);
+        PlayerPrefs.SetFloat("SoundVolume", FXSlider[0].value);
+        FXSlider[1].value = BGMSlider[0].value;
+        changing = true;
+
+    }
+    public void SetFXM()
+    {
+        
+        audioMix.SetFloat("SoundVolume", FXSlider[1].value);
+        PlayerPrefs.SetFloat("SoundVolume", FXSlider[1].value);
+        FXSlider[0].value = BGMSlider[1].value;
+        changing = true;
     }
 
     public void MuteToggle()
@@ -117,6 +173,11 @@ public class SoundUpdater : MonoBehaviour
         else
         {
             Muted = false;
+            audioMix.SetFloat("MusicVolume", BGMSlider[0].value = bgmVolume);
+            audioMix.SetFloat("SoundVolume", FXSlider[0].value = fxVolume);
+            audioMix.SetFloat("MusicVolume", BGMSlider[1].value = bgmVolume);
+            audioMix.SetFloat("SoundVolume", FXSlider[1].value = fxVolume);
+            volumeT = true;
         }
     }
 }

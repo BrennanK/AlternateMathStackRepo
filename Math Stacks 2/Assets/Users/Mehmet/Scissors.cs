@@ -27,7 +27,7 @@ public class Scissors : MonoBehaviour
                 TK.UseScissor();
             }
         }
-        isScissorsOn = true;
+        isScissorsOn = !isScissorsOn;
     }
 
     private void Press()
@@ -69,7 +69,7 @@ public class Scissors : MonoBehaviour
         TK.ScissorCut();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (isScissorsOn)
         {
@@ -80,12 +80,21 @@ public class Scissors : MonoBehaviour
                 Press();
             }
 
-            foreach (var box in boxes) box.GetComponent<BoxController>().enabled = false;
+            foreach (var box in boxes)
+            {
+                box.GetComponent<BoxController>().enabled = false;
+                box.GetComponent<Rigidbody>().isKinematic = true;
+            }
         }
         else
         {
             boxes = FindObjectsOfType<BoxController>();
-            foreach (var box in boxes) box.GetComponent<BoxController>().enabled = true;
+            foreach (var box in boxes)
+            {
+                box.GetComponent<BoxController>().enabled = true;
+                box.GetComponent<Rigidbody>().isKinematic = false;
+            }
+
         }
     }
 

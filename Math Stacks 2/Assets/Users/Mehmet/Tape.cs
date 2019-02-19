@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Tape : MonoBehaviour
 {
-    protected const float minDistance = 1.5f;
+    protected const float minDistance = 1.75f;
     private Vector3 _currentPosition;
     private Vector3 _initialPosition;
     private LineRenderer _lineRenderer;
@@ -28,6 +28,7 @@ public class Tape : MonoBehaviour
     private float tmpy1;
     private float tmpy2;
     private TutorialK TK;
+
     public void EnableTapeMode()
     {
         GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
@@ -54,17 +55,17 @@ public class Tape : MonoBehaviour
     private void Press()
     {
         Raycasts();
-        Debug.Log("On Press creating Ray");
+
         if (Physics.Raycast(rayForward, out hit))
         {
-            Debug.Log("On Press Raycasting out to hit: " + hit.collider.name);
+       
             Debug.DrawRay(rayForward.origin, rayForward.direction, Color.yellow);
             if (hit.collider.gameObject.GetComponent<NumberGen>())
             {
-                Debug.Log("On Press hit a Box");
+                
                 if (Box1 == null && hit.collider.gameObject != Box2)
                 {
-                    Debug.Log("adding Box1");
+                    
                     Box1 = hit.collider.gameObject;
                 }
             }
@@ -75,16 +76,16 @@ public class Tape : MonoBehaviour
     private void Release()
     {
         Raycasts();
-        Debug.Log("On Release creating Ray");
+  
         if (Physics.Raycast(rayForward, out hit))
         {
-            Debug.Log("On Release Raycasting out to hit: " + hit.collider.name);
+       
             if (hit.collider.gameObject.GetComponent<NumberGen>())
             {
-                Debug.Log("On Release hit a Box");
+        
                 if (Box2 == null && Box1 != null && hit.collider.gameObject != Box1)
                 {
-                    Debug.Log("adding Box2");
+         
                     Box2 = hit.collider.gameObject;
                     Math();
                     TK.SuccessUseTape();
@@ -102,6 +103,7 @@ public class Tape : MonoBehaviour
         tmpy2 = Box2.transform.position.y;
 
         midPoint = new Vector3((tmpx1 + tmpx2) / 2, (tmpy1 + tmpy2) / 2, Box1.transform.position.z);
+        
     }
 
     private void Update()
@@ -111,7 +113,7 @@ public class Tape : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Box1 = null;
-                Debug.Log("On Press");
+      
                 Press();
                 _initialPosition = GetCurrentMousePosition().GetValueOrDefault();
                 _lineRenderer.SetPosition(0, _initialPosition);
@@ -127,7 +129,7 @@ public class Tape : MonoBehaviour
             else if (Input.GetMouseButtonUp(0))
             {
                 Box2 = null;
-                Debug.Log("On Release");
+           
                 Release();
                 _lineRenderer.enabled = false;
                 var releasePosition = GetCurrentMousePosition().GetValueOrDefault();
@@ -154,7 +156,7 @@ public class Tape : MonoBehaviour
                     if (Difx > 1 && Dify < 1)
                     {
                         empty.AddComponent<BoxCollider>();
-                        empty.GetComponent<BoxCollider>().size = new Vector3(2.12f, 1, 1.4f);
+                        empty.GetComponent<BoxCollider>().size = new Vector3(2.85f, 1.38f, 1.77f);
                         Box1.transform.position = new Vector3(Box1.transform.position.x, empty.transform.position.y,
                             Box1.transform.position.z);
                         Box2.transform.position = new Vector3(Box2.transform.position.x, empty.transform.position.y,
@@ -164,7 +166,7 @@ public class Tape : MonoBehaviour
                     else if (Difx < 1 && Dify > 1)
                     {
                         empty.AddComponent<BoxCollider>();
-                        empty.GetComponent<BoxCollider>().size = new Vector3(1, 2.12f, 1.4f);
+                        empty.GetComponent<BoxCollider>().size = new Vector3(1.38f, 2.85f, 1.77f);
                         Box1.transform.position = new Vector3(empty.transform.position.x, Box1.transform.position.y,
                             Box1.transform.position.z);
                         Box2.transform.position = new Vector3(empty.transform.position.x, Box2.transform.position.y,

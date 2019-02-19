@@ -34,6 +34,11 @@ public class MenuManager : MonoBehaviour
     //public AudioMixerSnapshot pause;
     public SoundUpdater su;
     private TutorialK TK;
+    public AudioSource mainMu;
+    public AudioSource gameMu;
+    public AudioSource gameAb;
+
+    private bool musicTriger = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -112,7 +117,14 @@ public class MenuManager : MonoBehaviour
         Credit.SetActive(false);
         if (MainMenu.activeSelf == false)
         {
-            //if (CameraTransitions.GetBool("MenuTOGrade") == true)
+
+            if (musicTriger)
+            {
+                mainMu.Play();
+                gameAb.Stop();
+                gameMu.Stop();
+                musicTriger = false;
+            }//if (CameraTransitions.GetBool("MenuTOGrade") == true)
             //{
             //    CameraTransitions.SetBool("MenuTOGrade", false);
             //    CameraTransitions.SetBool("GradeTOMenu", true);
@@ -184,6 +196,13 @@ public class MenuManager : MonoBehaviour
             PauseScreen.SetActive(false);
             Labels.SetActive(false);
             InGameOverlay.SetActive(true);
+            if (!musicTriger)
+            {
+                mainMu.Stop();
+                gameAb.Play();
+                gameMu.Play();
+                musicTriger = true;
+            }
         }
     }
 

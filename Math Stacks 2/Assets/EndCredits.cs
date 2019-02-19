@@ -6,10 +6,12 @@ using UnityEngine;
 public class EndCredits : MonoBehaviour
 {
     public GameObject crditScene;
+
+    private MenuManager MM;
     // Start is called before the first frame update
     void Start()
     {
-        
+        MM= FindObjectOfType<MenuManager>().GetComponent<MenuManager>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,6 @@ public class EndCredits : MonoBehaviour
     public void EndPlay()
     {
         crditScene.SetActive(false);
-        
+        MM.Back();
     }
 }

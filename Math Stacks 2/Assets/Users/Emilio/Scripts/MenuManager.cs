@@ -15,6 +15,7 @@ public class MenuManager : MonoBehaviour
     public GameObject InGameOverlay;
     public GameObject Labels;
     public GameObject GameOver;
+    public GameObject Credit;
 
     public GameObject Staging;
     public GameObject OptionsDash;
@@ -108,6 +109,7 @@ public class MenuManager : MonoBehaviour
 
     public void MainMenuActive()
     {
+        Credit.SetActive(false);
         if (MainMenu.activeSelf == false)
         {
             //if (CameraTransitions.GetBool("MenuTOGrade") == true)
@@ -365,5 +367,17 @@ public class MenuManager : MonoBehaviour
         GameOver.SetActive(false);
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+    }
+
+    public void PlayCredit()
+    {
+        MainMenu.SetActive(false);
+        GradeSelect.SetActive(false);
+        Options.SetActive(false);
+        PauseScreen.SetActive(false);
+        InGameOverlay.SetActive(false);
+        Labels.SetActive(false);
+        GameOver.SetActive(false);
+        Credit.SetActive(true);
     }
 }

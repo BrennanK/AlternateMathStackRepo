@@ -9,7 +9,7 @@ public class Reset : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.GetComponent<NumberGen>())
+        if (col.gameObject.GetComponent<BoxController>() )
         {
             col.transform.position = ResetPoint.transform.position;
         }

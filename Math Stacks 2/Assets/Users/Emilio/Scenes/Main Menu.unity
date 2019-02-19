@@ -1838,7 +1838,7 @@ PrefabInstance:
     - target: {fileID: 5693340899992628761, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5693340898804890742, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
         type: 3}
@@ -1858,7 +1858,7 @@ PrefabInstance:
     - target: {fileID: 5693340898804890742, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 598
       objectReference: {fileID: 0}
     - target: {fileID: 5693340900021624995, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
         type: 3}
@@ -1883,6 +1883,7 @@ PrefabInstance:
 
 
         Artist
+
 
 
 
@@ -1915,6 +1916,8 @@ PrefabInstance:
         Shijun Guo
 
 
+        Brittany Maroulakos
+
         Jacob Sosa
 
         Matthew Redfearn-Diaz
@@ -1933,6 +1936,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -600
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693340899705892527, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
+        type: 3}
+      propertyPath: m_Transition
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}

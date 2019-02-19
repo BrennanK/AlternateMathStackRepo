@@ -38,14 +38,16 @@ public class MenuManager : MonoBehaviour
     public AudioSource gameMu;
     public AudioSource gameAb;
 
-    private bool musicTriger = true;
+    private bool musicTriger;
     // Start is called before the first frame update
     void Start()
     {
+        musicTriger = true;
+        MainMenu.SetActive(false);
         if (IsMainMenu == true)
         {
             MainMenuActive();
-
+            
             Staging.SetActive(true);
             OptionsDash.SetActive(false);
         }
@@ -117,13 +119,14 @@ public class MenuManager : MonoBehaviour
         Credit.SetActive(false);
         if (MainMenu.activeSelf == false)
         {
-
+            Debug.Log("testing!!!");
             if (musicTriger)
             {
                 mainMu.Play();
                 gameAb.Stop();
                 gameMu.Stop();
                 musicTriger = false;
+                Debug.Log("Play main menu music");
             }//if (CameraTransitions.GetBool("MenuTOGrade") == true)
             //{
             //    CameraTransitions.SetBool("MenuTOGrade", false);

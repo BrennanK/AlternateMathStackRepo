@@ -28,7 +28,7 @@ public class Tape : MonoBehaviour
     private float tmpy1;
     private float tmpy2;
     private TutorialK TK;
-
+    public AudioSource tapeAu;
     public void EnableTapeMode()
     {
         GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
@@ -89,6 +89,7 @@ public class Tape : MonoBehaviour
                     Box2 = hit.collider.gameObject;
                     Math();
                     TK.SuccessUseTape();
+                    tapeAu.Play();
                 }
              
             }

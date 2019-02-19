@@ -4,6 +4,8 @@
 // Date: 05/February/2019
 // Last Edited By: Antonio Perez
 // Last Edited Date: 05/February/2019
+
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -32,6 +34,9 @@ public class BoxController : MonoBehaviour
     public bool isBeingHeld;
     private TutorialK TK;
     private Vector3 lockPosition;
+    public AudioSource pickAu;
+    public AudioSource droupAu;
+    private bool soundPlay = true;
     private void Awake()
     {
         TK = FindObjectOfType<TutorialK>().GetComponent<TutorialK>();
@@ -80,6 +85,7 @@ public class BoxController : MonoBehaviour
             distance = Camera.main.WorldToScreenPoint(transform.position);
             positionX = Input.mousePosition.x - distance.x;
             positionY = Input.mousePosition.y - distance.y;
+            pickAu.Play();
         }
     }
 
@@ -129,5 +135,21 @@ public class BoxController : MonoBehaviour
         }
 
         isBeingHeld = false;
+    }
+    public void OnCollisionEnter(Collision other)
+    {
+        if (soundPlay)
+        {
+            soundPlay = false;
+            droupAu.Play();
+            StartCoroutine("WaitTime", 0.5f);
+
+        }
+    }
+
+    IEnumerator WaitTime(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        soundPlay = true;
     }
 }

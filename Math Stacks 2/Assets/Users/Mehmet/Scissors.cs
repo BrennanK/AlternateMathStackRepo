@@ -15,6 +15,7 @@ public class Scissors : MonoBehaviour
     public bool isScissorsOn;
     private Ray rayForward;
     private TutorialK TK;
+    public AudioSource cutAu;
     public void EnableScissorMode()
     {
         GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
@@ -67,6 +68,7 @@ public class Scissors : MonoBehaviour
         BoxChildren = null;
         isScissorsOn = false;
         TK.ScissorCut();
+        cutAu.Play();
     }
 
     private void Update()

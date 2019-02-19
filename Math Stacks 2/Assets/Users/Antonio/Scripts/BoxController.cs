@@ -31,6 +31,7 @@ public class BoxController : MonoBehaviour
 
     public bool isBeingHeld;
     private TutorialK TK;
+    private Vector3 lockPosition;
     private void Awake()
     {
         TK = FindObjectOfType<TutorialK>().GetComponent<TutorialK>();
@@ -56,8 +57,17 @@ public class BoxController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!isBeingHeld)
-        rb.velocity += new Vector3(0f, -9.81f * Time.fixedDeltaTime, 0f);
+        if (!isBeingHeld)
+        {
+           
+            rb.velocity += new Vector3(0f, -9.81f * Time.fixedDeltaTime, 0f);
+        }
+
+        if (rb.velocity.y >= -5f)
+        {
+            rb.velocity = new Vector3(0f, -5f, 0f);
+            
+        }
     }
 
     private void OnMouseDown()
@@ -85,7 +95,15 @@ public class BoxController : MonoBehaviour
             if (WorldPosition.x > -7 && WorldPosition.y > 0.5 && WorldPosition.x < 7 && WorldPosition.y < 7.5)
             {
                 transform.position = WorldPosition;
+                lockPosition = WorldPosition;
                 TK.BoxMove();
+            }
+            
+            //if (WorldPosition.x <= -7 && WorldPosition.y < 0.5 && WorldPosition.x > 7 && WorldPosition.y > 7.5)
+            else
+            {
+                transform.position = lockPosition;
+                
             }
         }
 

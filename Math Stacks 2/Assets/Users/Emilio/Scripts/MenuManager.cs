@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -43,6 +44,8 @@ public class MenuManager : MonoBehaviour
     private Tape tape;
 
     private Scissors scissors;
+
+    private Exhaust Exh;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +54,7 @@ public class MenuManager : MonoBehaviour
         if (IsMainMenu == true)
         {
             MainMenuActive();
-            
+
             Staging.SetActive(true);
             OptionsDash.SetActive(false);
         }
@@ -62,6 +65,7 @@ public class MenuManager : MonoBehaviour
         tape = FindObjectOfType<Tape>().GetComponent<Tape>();
         scissors = FindObjectOfType<Scissors>().GetComponent<Scissors>();
         //CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
+        //Exh = FindObjectOfType<Exhaust>().GetComponent<Exhaust>();
     }
 
     void Update()
@@ -125,6 +129,23 @@ public class MenuManager : MonoBehaviour
         Credit.SetActive(false);
         if (MainMenu.activeSelf == false)
         {
+
+            /*GameObject exhaustP = GameObject.Find("Exhaust");
+            GameObject exhaustC = exhaustP.transform.Find("ExhaustPrewarm").gameObject;
+            exhaustC.SetActive(true);
+            //exhaust.SetActive(true);
+            */
+            GameObject[] temp = SceneManager.GetSceneByName("Main Menu").GetRootGameObjects();
+            for (int i = 0; i < temp.Length; i++)
+            {
+
+                if (temp[i].name == "Exhaust")
+                {
+                    Exh = temp[i].GetComponent<Exhaust>();
+                    Exh.PlayExhoust();
+                }
+            }
+
             Debug.Log("testing!!!");
             if (musicTriger)
             {
@@ -180,15 +201,17 @@ public class MenuManager : MonoBehaviour
 
     public void GradeSelectActive()
     {
-        SceneManager.LoadScene("Grade Select");
+        //CameraTransitions.SetBool("MenuTOGrade", true);
+        if (GradeSelect.activeSelf == false)
+        {
             MainMenu.SetActive(false);
-       
+            GradeSelect.SetActive(true);
             Options.SetActive(false);
             PauseScreen.SetActive(false);
             InGameOverlay.SetActive(false);
             Labels.SetActive(false);
             Time.timeScale = 1;
-        
+        }
     }
 
     public void InGameOverlayActive()
@@ -251,6 +274,24 @@ public class MenuManager : MonoBehaviour
         {
             if (mainMenu == "Main Menu")
             {
+                /*
+                //GameObject exhaust = GameObject.Find("ExhaustPrewarm");
+                GameObject exhaustP = GameObject.Find("Exhaust");
+                GameObject exhaustC = exhaustP.transform.Find("ExhaustPrewarm").gameObject;
+                exhaustC.SetActive(false);
+                */
+                GameObject[] temp = SceneManager.GetSceneByName("Main Menu").GetRootGameObjects();
+                for (int i = 0; i < temp.Length; i++)
+                {
+
+                    if (temp[i].name == "Exhaust")
+                    {
+                        Exh = temp[i].GetComponent<Exhaust>();
+                        Exh.StopExhaust();
+                    }
+                }
+
+                //exhaust.SetActive(false);
                 MainMenu.SetActive(false);
                 GradeSelect.SetActive(false);
                 Options.SetActive(false);

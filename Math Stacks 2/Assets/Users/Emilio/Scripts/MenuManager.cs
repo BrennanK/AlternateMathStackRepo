@@ -106,6 +106,7 @@ public class MenuManager : MonoBehaviour
 
     public void Cancel()
     {
+        ChangePaused();
         if (IsLabelsMenu)
         {
             Labels.SetActive(false);
@@ -216,18 +217,23 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void ChangePaused()
+    {
+        Paused = false;
+    }
     public void LabelsActive()
     {
         if (Labels.activeSelf == false)
         {
             IsLabelsMenu = true;
-
+            Paused = true;
             MainMenu.SetActive(false);
             GradeSelect.SetActive(false);
             Options.SetActive(false);
             PauseScreen.SetActive(false);
             InGameOverlay.SetActive(false);
             Labels.SetActive(true);
+
             GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
             for (int i = 0; i < temp.Length; i++)
             {

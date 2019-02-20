@@ -23,11 +23,12 @@ public class StampGen : MonoBehaviour
     public bool canMake;
     public bool gameobjectHere;
     private TutorialK TK;
+    
     void Awake()
     {
         StampTag = StampTag.GetComponent<Text>();
         mng = FindObjectOfType<MenuManager>();
-
+        
         canNum = false;
         canOpp = false;
         canMake = true;
@@ -81,6 +82,7 @@ public class StampGen : MonoBehaviour
                 canOpp = false;
                 canMake = false;
                 TK.ClickCrate();
+                mng.ChangePaused();
             }
         }
     }

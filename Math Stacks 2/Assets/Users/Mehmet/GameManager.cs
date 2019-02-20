@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private AnswerChecker AC;
     public int currLevels;
     private Scene curScene;
-    private EquationGen EG;
+    public EquationGen EG;
     private string sceneName;
     public GameObject LabelButton;
     public GameObject Plus;
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+       
         curScene = SceneManager.GetActiveScene();
         sceneName = curScene.name;
         if (sceneName != "Main Menu")
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
 
             if (AC == null) AC = FindObjectOfType<AnswerChecker>().GetComponent<AnswerChecker>();
         }
-
+        EG.enabled = true;
         switch (currLevels)
         {
             case 0:
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
                 Minus.SetActive(true);
                 Multiply.SetActive(true);
                 Divide.SetActive(true);
-                return;
+                
                 break;
            default:
                LabelButton.SetActive(true);

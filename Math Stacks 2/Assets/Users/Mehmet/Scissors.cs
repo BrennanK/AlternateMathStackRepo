@@ -31,6 +31,10 @@ public class Scissors : MonoBehaviour
         isScissorsOn = !isScissorsOn;
     }
 
+    public void ResecScissor()
+    {
+        isScissorsOn = false;
+    }
     private void Press()
     {
         if (enabled)

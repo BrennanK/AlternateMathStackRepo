@@ -43,6 +43,10 @@ public class Tape : MonoBehaviour
         isTapeOn = !isTapeOn;
     }
 
+    public void ResetTape()
+    {
+        isTapeOn = false;
+    }
     public void Start()
     {
         tapeParent = FindObjectOfType<Tape>().GetComponent<Tape>();

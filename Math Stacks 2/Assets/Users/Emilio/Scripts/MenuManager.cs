@@ -39,6 +39,10 @@ public class MenuManager : MonoBehaviour
     public AudioSource gameAb;
 
     private bool musicTriger;
+
+    private Tape tape;
+
+    private Scissors scissors;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +59,8 @@ public class MenuManager : MonoBehaviour
         IsLabelsMenu = false;
         Paused = false;
         su = FindObjectOfType<GameManager>().GetComponent<SoundUpdater>();
-
+        tape = FindObjectOfType<Tape>().GetComponent<Tape>();
+        scissors = FindObjectOfType<Scissors>().GetComponent<Scissors>();
         //CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
     }
 
@@ -199,6 +204,8 @@ public class MenuManager : MonoBehaviour
             PauseScreen.SetActive(false);
             Labels.SetActive(false);
             InGameOverlay.SetActive(true);
+            tape.ResetTape();
+            scissors.ResecScissor();
             if (!musicTriger)
             {
                 mainMu.Stop();

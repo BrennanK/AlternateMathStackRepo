@@ -39,7 +39,7 @@ public class EquationGen : MonoBehaviour
 
     public void Update()
     {
-        this.GetComponent<EquationGen>().enabled = true;
+       
         Boxes = GameObject.FindGameObjectsWithTag("Draggable");
 
         Evaluate();

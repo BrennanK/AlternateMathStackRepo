@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Users/Emilio/Scenes/Main Menu.unity
     guid: eaedb34545b01144a88cafa937646caf
   - enabled: 1
+    path: Assets/Users/Emilio/Scenes/Grade Select.unity
+    guid: dda7e3d201d9e4d48a8d1c99206327e8
+  - enabled: 1
     path: Assets/Users/Antonio/Scenes/Test_Scene.unity
     guid: 6b079bce13e4cce4894d62492df34bb6
   m_configObjects: {}

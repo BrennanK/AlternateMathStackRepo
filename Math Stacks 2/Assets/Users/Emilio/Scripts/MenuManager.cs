@@ -180,17 +180,15 @@ public class MenuManager : MonoBehaviour
 
     public void GradeSelectActive()
     {
-        //CameraTransitions.SetBool("MenuTOGrade", true);
-        if (GradeSelect.activeSelf == false)
-        {
+        SceneManager.LoadScene("Grade Select");
             MainMenu.SetActive(false);
-            GradeSelect.SetActive(true);
+       
             Options.SetActive(false);
             PauseScreen.SetActive(false);
             InGameOverlay.SetActive(false);
             Labels.SetActive(false);
             Time.timeScale = 1;
-        }
+        
     }
 
     public void InGameOverlayActive()

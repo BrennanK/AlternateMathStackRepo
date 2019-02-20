@@ -98,7 +98,7 @@ public class BoxController : MonoBehaviour
             Vector3 WorldPosition = Camera.main.ScreenToWorldPoint(CurrentPosition);
             
             //Debug.Log("object position" + WorldPosition);
-            if (WorldPosition.x > -7 && WorldPosition.y > 0.5 && WorldPosition.x < 7 && WorldPosition.y < 7.5)
+            if (WorldPosition.x > -7 && WorldPosition.y > 0 && WorldPosition.x < 7 && WorldPosition.y < 7.5)
             {
                 transform.position = WorldPosition;
                 lockPosition = WorldPosition;

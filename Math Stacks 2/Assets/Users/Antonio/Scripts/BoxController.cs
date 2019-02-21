@@ -9,6 +9,7 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class BoxController : MonoBehaviour
 {
@@ -58,6 +59,23 @@ public class BoxController : MonoBehaviour
         {
             canvas.enabled = false;
         }
+
+        GameObject pick = GameObject.Find("Pick");
+        pickAu = pick.GetComponent<AudioSource>();
+        GameObject drop = GameObject.Find("Drop");
+        droupAu = drop.GetComponent<AudioSource>();
+        /*
+        GameObject[] temp = SceneManager.GetSceneByName("DontDestoryOnLoad").GetRootGameObjects();
+        for (int i = 0; i < temp.Length; i++)
+        {
+
+            if (temp[i].name == "Pick")
+            {
+                pickAu = temp[i].GetComponent<AudioSource>();
+                //pickAu.Play();
+            }
+        }
+        */
     }
 
     private void FixedUpdate()

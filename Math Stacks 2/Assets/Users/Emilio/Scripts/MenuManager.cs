@@ -50,6 +50,8 @@ public class MenuManager : MonoBehaviour
     private Score scoreZero;
 
     private bool goback;
+
+    private GameManager Gm;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +72,7 @@ public class MenuManager : MonoBehaviour
         scissors = FindObjectOfType<Scissors>().GetComponent<Scissors>();
         //CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
         //Exh = FindObjectOfType<Exhaust>().GetComponent<Exhaust>();
+        Gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
     }
 
     void Update()
@@ -207,10 +210,11 @@ public class MenuManager : MonoBehaviour
     public void GradeSelectActive()
     {
         //CameraTransitions.SetBool("MenuTOGrade", true);
+        Gm.GradeSelect();
         if (GradeSelect.activeSelf == false)
         {
             MainMenu.SetActive(false);
-            GradeSelect.SetActive(true);
+            GradeSelect.SetActive(false);//change
             Options.SetActive(false);
             PauseScreen.SetActive(false);
             InGameOverlay.SetActive(false);

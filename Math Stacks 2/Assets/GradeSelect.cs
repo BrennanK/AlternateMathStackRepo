@@ -50,5 +50,10 @@ public class GradeSelect : MonoBehaviour
         gM.LevelSelect(5);
         mM.InGameOverlayActive();
     }
-    
+
+    public void Back()
+    {
+        gM.BackToMain();
+        mM.Back();
+    }
 }

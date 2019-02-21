@@ -98,6 +98,14 @@ public class GameManager : MonoBehaviour
     
     }
 
+    public void GradeSelect()
+    {
+        SceneManager.LoadScene("Grade Select");
+    }
+    public void BackToMain()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
     public void CorrectAnswer() //Regenerates an equation 
     {
         EG.CallGrade();

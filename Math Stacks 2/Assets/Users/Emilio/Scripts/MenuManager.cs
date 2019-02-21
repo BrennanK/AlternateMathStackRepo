@@ -52,9 +52,12 @@ public class MenuManager : MonoBehaviour
     private bool goback;
 
     private GameManager Gm;
+
+    private StampGen stmp;
     // Start is called before the first frame update
     void Start()
     {
+        
         musicTriger = true;
         MainMenu.SetActive(false);
         if (IsMainMenu == true)
@@ -251,7 +254,8 @@ public class MenuManager : MonoBehaviour
                 scoreZero.ScoreZero();
                 goback = false;
             }
-            
+            stmp = GameObject.Find("UI Screens").GetComponent<StampGen>();
+            stmp.canMake = true;
         }
     }
 

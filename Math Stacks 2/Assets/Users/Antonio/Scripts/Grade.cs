@@ -17,6 +17,13 @@ public class Grade : MonoBehaviour
 
     private void Update()
     {
-        gradeText.text = "" + GM.currLevels;
+        if (GM.currLevels > 0)
+        {
+            gradeText.text = "" + GM.currLevels;
+        }
+        else
+        {
+            gradeText.text = "K";
+        }
     }
 }

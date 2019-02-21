@@ -12,5 +12,10 @@ public class Score : MonoBehaviour
     {
         scoreText.text = "" + score;
     }
+
+    public void ScoreZero()
+    {
+        score = 0;
+    }
 }
 

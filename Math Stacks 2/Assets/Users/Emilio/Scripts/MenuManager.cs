@@ -33,7 +33,7 @@ public class MenuManager : MonoBehaviour
     BoxController cont;
     //public AudioMixerSnapshot normal;
     //public AudioMixerSnapshot pause;
-    public SoundUpdater su;
+    //public SoundUpdater su;
     private TutorialK TK;
     public AudioSource mainMu;
     public AudioSource gameMu;
@@ -46,6 +46,8 @@ public class MenuManager : MonoBehaviour
     private Scissors scissors;
 
     private Exhaust Exh;
+
+    private Score scoreZero;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +63,7 @@ public class MenuManager : MonoBehaviour
 
         IsLabelsMenu = false;
         Paused = false;
-        su = FindObjectOfType<GameManager>().GetComponent<SoundUpdater>();
+        //su = FindObjectOfType<GameManager>().GetComponent<SoundUpdater>();
         tape = FindObjectOfType<Tape>().GetComponent<Tape>();
         scissors = FindObjectOfType<Scissors>().GetComponent<Scissors>();
         //CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
@@ -235,6 +237,8 @@ public class MenuManager : MonoBehaviour
                 gameMu.Play();
                 musicTriger = true;
             }
+            scoreZero = FindObjectOfType<Score>().GetComponent<Score>();
+            scoreZero.ScoreZero();
         }
     }
 
@@ -328,7 +332,7 @@ public class MenuManager : MonoBehaviour
             Paused = true;
             Debug.Log("Game Is Paused");
             Time.timeScale = 0;
-            su.Pause(true);
+            //su.Pause(true);
             //Lowpass();
         }
         /*
@@ -379,7 +383,7 @@ public class MenuManager : MonoBehaviour
             Time.timeScale = 1;
             PauseScreen.SetActive(false);
             InGameOverlay.SetActive(true);
-            su.Pause(false);
+            //su.Pause(false);
             //Lowpass();
 
         }
@@ -389,7 +393,7 @@ public class MenuManager : MonoBehaviour
             Debug.Log("Game Is Unpaused");
             Time.timeScale = 1;
             PauseScreen.SetActive(false);
-            su.Pause(false);
+            //su.Pause(false);
             //Lowpass();
             /*
             if (Paused == true)

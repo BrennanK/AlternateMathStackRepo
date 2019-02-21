@@ -5186,6 +5186,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExhaustPrewarm
       objectReference: {fileID: 0}
+    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
+        type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
+        type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
+        type: 3}
+      propertyPath: ClampVelocityModule.magnitude.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
+        type: 3}
+      propertyPath: ClampVelocityModule.dampen
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2633471534923638322, guid: acd3023cf6b9db44f81edaa73f0ee292,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5255,46 +5295,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2627901
-      objectReference: {fileID: 0}
-    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
-        type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
-        type: 3}
-      propertyPath: prewarm
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
-        type: 3}
-      propertyPath: InitialModule.rotation3D
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
-        type: 3}
-      propertyPath: ClampVelocityModule.magnitude.scalar
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
-        type: 3}
-      propertyPath: ClampVelocityModule.dampen
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4043601971485209135, guid: acd3023cf6b9db44f81edaa73f0ee292,
-        type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.b
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acd3023cf6b9db44f81edaa73f0ee292, type: 3}
@@ -7028,6 +7028,16 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2127291629}
+    - target: {fileID: 1149078596304733750, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149078596304733750, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
 --- !u!1 &2739691462726553505 stripped

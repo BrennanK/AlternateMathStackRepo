@@ -26,10 +26,11 @@ public class EquationGen : MonoBehaviour
     public GameObject[] Boxes;
     private Scene curScene;
     private string SceneName;
-
+    private bool startGame;
     public void Awake ()
-         
+
     {
+        startGame = true;
         EquationText = EquationText.GetComponent<Text>();
     
         CallGrade();
@@ -58,66 +59,79 @@ public class EquationGen : MonoBehaviour
 
     public void CallGrade()
     {
-     
-        switch (GameManager.Instance.currLevels) //Switch Statement for when a Grade was Selected.
+        if (startGame)
         {
-            case 0:
-                isK = true;
-                IsFirst = false;
-                isSecond = false;
-                isThird = false;
-                isFourth = false;
-                isFifth = false;
-                break;
-            case 1:
-                isK = false;
-                IsFirst = true;
-                isSecond = false;
-                isThird = false;
-                isFourth = false;
-                isFifth = false;
-                break;
-            case 2:
-                isK = false;
-                IsFirst = false;
-                isSecond = true;
-                isThird = false;
-                isFourth = false;
-                isFifth = false;
-                break;
-            case 3:
-                isK = false;
-                IsFirst = false;
-                isSecond = false;
-                isThird = true;
-                isFourth = false;
-                isFifth = false;
-                break;
-            case 4:
-                isK = false;
-                IsFirst = false;
-                isSecond = false;
-                isThird = false;
-                isFourth = true;
-                isFifth = false;
-                break;
-            case 5:
-                isK = false;
-                IsFirst = false;
-                isSecond = false;
-                isThird = false;
-                isFourth = false;
-                isFifth = true;
-                break;
-            default:
-                isK = true;
-                IsFirst = false;
-                isSecond = false;
-                isThird = false;
-                isFourth = false;
-                isFifth = false;
-                Debug.Log("Exceeded Range Potential Setting to Kindergarten as Safe Protocol ");
-                break;
+            isK = true;
+            IsFirst = false;
+            isSecond = false;
+            isThird = false;
+            isFourth = false;
+            isFifth = false;
+            startGame = false;
+        }
+        else
+        {
+            
+            switch (GameManager.Instance.currLevels) //Switch Statement for when a Grade was Selected.
+            {
+                case 0:
+                    isK = true;
+                    IsFirst = false;
+                    isSecond = false;
+                    isThird = false;
+                    isFourth = false;
+                    isFifth = false;
+                    break;
+                case 1:
+                    isK = false;
+                    IsFirst = true;
+                    isSecond = false;
+                    isThird = false;
+                    isFourth = false;
+                    isFifth = false;
+                    break;
+                case 2:
+                    isK = false;
+                    IsFirst = false;
+                    isSecond = true;
+                    isThird = false;
+                    isFourth = false;
+                    isFifth = false;
+                    break;
+                case 3:
+                    isK = false;
+                    IsFirst = false;
+                    isSecond = false;
+                    isThird = true;
+                    isFourth = false;
+                    isFifth = false;
+                    break;
+                case 4:
+                    isK = false;
+                    IsFirst = false;
+                    isSecond = false;
+                    isThird = false;
+                    isFourth = true;
+                    isFifth = false;
+                    break;
+                case 5:
+                    isK = false;
+                    IsFirst = false;
+                    isSecond = false;
+                    isThird = false;
+                    isFourth = false;
+                    isFifth = true;
+                    break;
+                default:
+                    isK = true;
+                    IsFirst = false;
+                    isSecond = false;
+                    isThird = false;
+                    isFourth = false;
+                    isFifth = false;
+                    Debug.Log("Exceeded Range Potential Setting to Kindergarten as Safe Protocol ");
+                    break;
+            }
         }
         //Calls appropriate method for each grade level.
         if (isK)

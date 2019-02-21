@@ -37,11 +37,14 @@ public class GameManager : MonoBehaviour
         if (sceneName != "Main Menu")
         {
             if (EG == null)
+            {
                 EG = FindObjectOfType<EquationGen>().GetComponent<EquationGen>(); //Finding the Equation Gen
+                EG.enabled = true;
+            }
 
             if (AC == null) AC = FindObjectOfType<AnswerChecker>().GetComponent<AnswerChecker>();
         }
-        EG.enabled = true;
+
         switch (currLevels)
         {
             case 0:

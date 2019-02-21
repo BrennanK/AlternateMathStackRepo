@@ -80,7 +80,7 @@ public class AnswerChecker : MonoBehaviour
                 correctAnswers++;
                 scre.score += 10;
                 timer.time += 10f;
-               
+                
 
                 if (correctAnswers >= 10)
                 {

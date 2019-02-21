@@ -16,6 +16,7 @@ public class Score : MonoBehaviour
     public void ScoreZero()
     {
         score = 0;
+        Debug.Log("Score Zero");
     }
 }
 

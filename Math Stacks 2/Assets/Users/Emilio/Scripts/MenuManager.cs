@@ -48,6 +48,8 @@ public class MenuManager : MonoBehaviour
     private Exhaust Exh;
 
     private Score scoreZero;
+
+    private bool goback;
     // Start is called before the first frame update
     void Start()
     {
@@ -129,6 +131,7 @@ public class MenuManager : MonoBehaviour
     public void MainMenuActive()
     {
         Credit.SetActive(false);
+        goback = true;
         if (MainMenu.activeSelf == false)
         {
 
@@ -237,8 +240,14 @@ public class MenuManager : MonoBehaviour
                 gameMu.Play();
                 musicTriger = true;
             }
-            scoreZero = FindObjectOfType<Score>().GetComponent<Score>();
-            scoreZero.ScoreZero();
+
+            if (goback)
+            {
+                scoreZero = FindObjectOfType<Score>().GetComponent<Score>();
+                scoreZero.ScoreZero();
+                goback = false;
+            }
+            
         }
     }
 

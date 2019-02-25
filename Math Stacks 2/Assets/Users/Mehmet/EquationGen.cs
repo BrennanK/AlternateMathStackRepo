@@ -57,6 +57,11 @@ public class EquationGen : MonoBehaviour
 
     }
 
+    public void StartShow()
+    {
+        EquationText.text = "    ";
+        Debug.Log("called!!!");
+    }
     public void CallGrade()
     {
         if (startGame)

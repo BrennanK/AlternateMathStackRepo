@@ -54,6 +54,8 @@ public class MenuManager : MonoBehaviour
     private GameManager Gm;
 
     private StampGen stmp;
+
+    private EquationGen Eqg;
     // Start is called before the first frame update
     void Start()
     {
@@ -256,6 +258,8 @@ public class MenuManager : MonoBehaviour
             }
             stmp = GameObject.Find("UI Screens").GetComponent<StampGen>();
             stmp.canMake = true;
+            Eqg = FindObjectOfType<EquationGen>().GetComponent<EquationGen>();
+            Eqg.StartShow();
         }
     }
 

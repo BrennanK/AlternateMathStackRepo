@@ -61,6 +61,12 @@ public class EquationGen : MonoBehaviour
     {
         EquationText.text = "    ";
         Debug.Log("called!!!");
+        if (GameManager.Instance.currLevels == 0)
+        {
+            
+            CallGrade();
+           
+        }
     }
     public void CallGrade()
     {

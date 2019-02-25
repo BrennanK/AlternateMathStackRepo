@@ -68,7 +68,7 @@ public class BoxSpawner : MonoBehaviour
 
                 for ( i = 0; i < RandomBoxes.Length; i++)
                 {
-                    index = Random.Range(1, boxChoice.Length+1);
+                    index = Random.Range(1, boxChoice.Length);
                     RandomBoxes[i] = boxChoice[index].gameObject;
                     spwnIndex = i;
                     if (RandomBoxes[i].gameObject.GetComponent<BlankID>())

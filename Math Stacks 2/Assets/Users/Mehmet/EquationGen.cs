@@ -60,7 +60,6 @@ public class EquationGen : MonoBehaviour
     public void StartShow()
     {
         EquationText.text = "    ";
-        Debug.Log("called!!!");
         if (GameManager.Instance.currLevels == 0)
         {
             

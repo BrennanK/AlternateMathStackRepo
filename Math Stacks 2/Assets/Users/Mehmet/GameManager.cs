@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
        
         curScene = SceneManager.GetActiveScene();
         sceneName = curScene.name;
-        if (sceneName != "Main Menu")
+        if (sceneName == "Test_Scene")
         {
             if (EG == null)
             {

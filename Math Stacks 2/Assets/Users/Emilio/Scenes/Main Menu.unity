@@ -7094,6 +7094,47 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5693340899992628761, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693340899888113489, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Gerard Merritt
+
+
+        Anthony Santoro
+
+
+        Brennan Kersey
+
+
+        Antonio Perez
+
+        Emilio Mojica
+
+
+        Lin Qi
+
+        Mehmet Holbert
+
+        Shijun Guo
+
+
+
+        Brittany Maroulakos
+
+        Jacob Sosa
+
+        Matthew Redfearn-Diaz
+
+        Patrick Kercher
+
+
+        Dern Lin'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
 --- !u!1 &2739691462726553505 stripped

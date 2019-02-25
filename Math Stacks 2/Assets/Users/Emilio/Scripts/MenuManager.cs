@@ -56,6 +56,8 @@ public class MenuManager : MonoBehaviour
     private StampGen stmp;
 
     private EquationGen Eqg;
+
+    public Timer stopTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +80,7 @@ public class MenuManager : MonoBehaviour
         //CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
         //Exh = FindObjectOfType<Exhaust>().GetComponent<Exhaust>();
         Gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+        //stopTime = GameObject.Find("UI Screens").GetComponent<Timer>();
     }
 
     void Update()
@@ -135,11 +138,12 @@ public class MenuManager : MonoBehaviour
     {
         WasGamePaused();
     }
-
+    
     public void MainMenuActive()
     {
         Credit.SetActive(false);
         goback = true;
+        stopTime.TheWorld = true;// in timer 
         if (MainMenu.activeSelf == false)
         {
 
@@ -232,6 +236,7 @@ public class MenuManager : MonoBehaviour
     {
         if (InGameOverlay.activeSelf == false)
         {
+            stopTime.TheWorld = false;
             IsMainMenu = false;
 
             MainMenu.SetActive(false);

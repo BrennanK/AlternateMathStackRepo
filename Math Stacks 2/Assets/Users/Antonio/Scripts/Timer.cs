@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private Slider slider;
 
     private MenuManager mng;
-
+    public bool TheWorld;
     private void Start()
     {
         mng = GameObject.Find("UI Screens").GetComponent<MenuManager>();
@@ -28,16 +28,28 @@ public class Timer : MonoBehaviour
         timerText.text = "Time Left: " + Mathf.Round(time);
         time -= Time.deltaTime;
         slider.value = time;
-
-        if (time <= 0)
-        {
-            time = 180f;
-            mng.GameOverActive();
-        }
-
-        if (time >= 180f)
+        if (TheWorld)
         {
             time = maxTime;
+        }
+        else
+        {
+
+            if (time <= 0)
+            {
+                time = 180f;
+                mng.GameOverActive();
+            }
+
+            if (time >= 180f)
+            {
+                time = maxTime;
+            }
+
+            if (TheWorld)
+            {
+                time = maxTime;
+            }
         }
     }
 }

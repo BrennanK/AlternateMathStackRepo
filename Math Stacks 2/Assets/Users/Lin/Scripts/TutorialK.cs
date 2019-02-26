@@ -32,6 +32,25 @@ public class TutorialK : MonoBehaviour
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentlevel = GM.currLevels;
         PlayerData data = SaveSystem.LoadPlayer();
+        if (data == null)
+        {
+            Debug.Log("NO data saved");
+            tutorialNum = 0;
+            SaveSystem.SavePlayer(this);
+            intutorial = true;
+            Invoke("ChangeLevel", 1f);
+        }
+        else
+        {
+            ChangeLevel();
+        }
+
+        
+    }
+
+    void ChangeLevel()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
         Debug.Log("Save number = " + data.tutorialI);
         if ((int)currentlevel >= data.tutorialI)
         {
@@ -39,9 +58,9 @@ public class TutorialK : MonoBehaviour
             bpanel.SetActive(false);
             tutorialNum = (int)currentlevel + 1;
             SaveSystem.SavePlayer(this);
+            Debug.Log("Level ADD 1");
         }
     }
-
     // Update is called once per frame
     void Update()
     {

@@ -60,12 +60,15 @@ public class EquationGen : MonoBehaviour
     public void StartShow()
     {
         EquationText.text = "    ";
-        if (GameManager.Instance.currLevels == 0)
+
+        /*if (GameManager.Instance.currLevels == 0)
         {
             
             CallGrade();
            
         }
+        */
+        CallGrade();
     }
     public void CallGrade()
     {

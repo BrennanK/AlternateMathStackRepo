@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -58,6 +59,8 @@ public class MenuManager : MonoBehaviour
     private EquationGen Eqg;
 
     public Timer stopTime;
+
+    private bool equationgen;
     // Start is called before the first frame update
     void Start()
     {
@@ -143,6 +146,7 @@ public class MenuManager : MonoBehaviour
     {
         Credit.SetActive(false);
         goback = true;
+        equationgen = true;
         stopTime.TheWorld = true;// in timer 
         if (MainMenu.activeSelf == false)
         {
@@ -264,7 +268,13 @@ public class MenuManager : MonoBehaviour
             stmp = GameObject.Find("UI Screens").GetComponent<StampGen>();
             stmp.canMake = true;
             Eqg = FindObjectOfType<EquationGen>().GetComponent<EquationGen>();
-            Eqg.StartShow();
+            if (equationgen)
+            {
+
+                Eqg.StartShow();
+                equationgen = false;
+            }
+
         }
     }
 

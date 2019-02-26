@@ -7028,30 +7028,6 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2127291629}
-    - target: {fileID: 1139006040, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 161.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139006040, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -265.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139006040, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -155.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139006040, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139006040, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139006040, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
 --- !u!1 &2739691462726553505 stripped

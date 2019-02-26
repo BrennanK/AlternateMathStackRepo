@@ -82,6 +82,7 @@ public class BoxSpawner : MonoBehaviour
                     }
                  
                 }
+
                 Instantiate(RandomBoxes[spwnIndex].gameObject, boxLocations[number].transform.position, boxLocations[number].transform.rotation);
                 oldBoxes = FindObjectsOfType<BoxController>();
                 number++;

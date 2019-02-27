@@ -85,6 +85,7 @@ public class AnswerChecker : MonoBehaviour
                 if (correctAnswers >= 10)
                 {
                     scre.score += 100;
+                    correctAnswers = 0;
                 }
             }
 

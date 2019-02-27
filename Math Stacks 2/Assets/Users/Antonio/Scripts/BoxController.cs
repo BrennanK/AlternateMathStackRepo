@@ -64,18 +64,6 @@ public class BoxController : MonoBehaviour
         pickAu = pick.GetComponent<AudioSource>();
         GameObject drop = GameObject.Find("Drop");
         droupAu = drop.GetComponent<AudioSource>();
-        /*
-        GameObject[] temp = SceneManager.GetSceneByName("DontDestoryOnLoad").GetRootGameObjects();
-        for (int i = 0; i < temp.Length; i++)
-        {
-
-            if (temp[i].name == "Pick")
-            {
-                pickAu = temp[i].GetComponent<AudioSource>();
-                //pickAu.Play();
-            }
-        }
-        */
     }
 
     private void FixedUpdate()

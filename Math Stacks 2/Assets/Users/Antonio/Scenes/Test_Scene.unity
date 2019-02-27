@@ -1703,8 +1703,6 @@ MonoBehaviour:
   - {fileID: 1899902499, guid: 71536aa6f4dfa7e4d857b1d841841dac, type: 3}
   - {fileID: 7227116100982704469, guid: dad6142b4f0480b4faa462f110c9f455, type: 3}
   - {fileID: 7227116100982704469, guid: e0e83c7c853662b4999e01752c3dc94f, type: 3}
-  - {fileID: 5990206943924779525, guid: f9928bacd542e06449d9318de44e8975, type: 3}
-  - {fileID: 1786273337935334504, guid: 0b44d521981be1d4bbd51e488f6d83eb, type: 3}
   boxLocations:
   - {fileID: 1773268775}
   - {fileID: 1746179460}

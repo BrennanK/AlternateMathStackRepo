@@ -86,34 +86,30 @@ public class BoxSpawner : MonoBehaviour
                         }
                     }
 
-                    else if (RandomBoxes[i].gameObject.GetComponent<VerticalGroupID>())
-                    {
-                        amountTick += 2;
-
-                        if (amountTick > amountOfBoxes)
-                        {
-                            RandomBoxes[i] = boxChoice[1].gameObject;
-                        }
-                    }
-
-                    else if (RandomBoxes[i].gameObject.GetComponent<HorizontalGroupID>())
-                    {
-                        amountTick += 2;
-
-                        if (amountTick > amountOfBoxes)
-                        {
-                            RandomBoxes[i] = boxChoice[1].gameObject;
-                        }
-                    }
-
-                    //if (boxLocations[0].gameObject.GetComponent<VerticalGroupID>())
+                    //else if (RandomBoxes[i].gameObject.GetComponent<VerticalGroupID>())
                     //{
-                    //    boxLocations[]
+                    //    amountTick += 2;
+
+                    //    if (amountTick > amountOfBoxes)
+                    //    {
+                    //        RandomBoxes[i] = boxChoice[1].gameObject;
+                    //    }
+                    //}
+
+                    //else if (RandomBoxes[i].gameObject.GetComponent<HorizontalGroupID>())
+                    //{
+                    //    amountTick += 2;
+
+                    //    if (amountTick > amountOfBoxes)
+                    //    {
+                    //        RandomBoxes[i] = boxChoice[1].gameObject;
+                    //    }
                     //}
 
                     Instantiate(RandomBoxes[i].gameObject, boxLocations[number].transform.position, boxLocations[number].transform.rotation);
                     oldBoxes = FindObjectsOfType<BoxController>();
                     number++;
+
                 }
             }
             

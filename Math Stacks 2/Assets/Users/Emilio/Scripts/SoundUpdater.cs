@@ -9,7 +9,7 @@ using UnityEditor;
 public class SoundUpdater : MonoBehaviour
 {
     public AudioMixer audioMix;
-    [SerializeField] Slider MasterSlider;
+    //[SerializeField] Slider MasterSlider;
     [SerializeField] Slider[] BGMSlider;
     [SerializeField] Slider[] FXSlider;
 
@@ -30,7 +30,7 @@ public class SoundUpdater : MonoBehaviour
     private bool changing2 = false;
     private void Start()
     {
-        MasterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+        //MasterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
         BGMSlider[0].value = PlayerPrefs.GetFloat("MusicVolume");
         FXSlider[0].value = PlayerPrefs.GetFloat("SoundVolume");
         
@@ -38,7 +38,7 @@ public class SoundUpdater : MonoBehaviour
         BGMSlider[1].value = PlayerPrefs.GetFloat("MusicVolume");
         FXSlider[1].value = PlayerPrefs.GetFloat("SoundVolume");
         
-        audioMix.SetFloat("MasterVolume", MasterSlider.value);
+        //audioMix.SetFloat("MasterVolume", MasterSlider.value);
         audioMix.SetFloat("MusicVolume", BGMSlider[0].value);
         audioMix.SetFloat("SoundVolume", FXSlider[0].value);
         
@@ -136,8 +136,8 @@ public class SoundUpdater : MonoBehaviour
     }
     public void SetMaster()
     {
-        audioMix.SetFloat("MasterVolume", MasterSlider.value);
-        PlayerPrefs.SetFloat("MasterVolume", MasterSlider.value);
+        //audioMix.SetFloat("MasterVolume", MasterSlider.value);
+        //PlayerPrefs.SetFloat("MasterVolume", MasterSlider.value);
     }
 
     public void SetBGM()

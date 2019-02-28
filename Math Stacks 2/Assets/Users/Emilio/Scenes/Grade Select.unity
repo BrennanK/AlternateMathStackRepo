@@ -1493,6 +1493,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GradeLevel: 4
   MM: {fileID: 0}
+--- !u!1001 &781660018
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1587483071407886980, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_Name
+      value: TruckFull_Title_+Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587483071407887035, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587483071407887035, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587483071407887035, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587483071407887035, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587483071407887035, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6540366
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587483071407887035, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587483071407887035, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.756463
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587483071407887035, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587483071407887035, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587483071407887035, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587483071407887035, guid: b3a60d0c375f3424ba49143b388f2a24,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b3a60d0c375f3424ba49143b388f2a24, type: 3}
 --- !u!1 &783392730
 GameObject:
   m_ObjectHideFlags: 0
@@ -4432,6 +4501,10 @@ PrefabInstance:
     - target: {fileID: 100592, guid: b75c006e8d3c40f489e8548fa0c775ab, type: 3}
       propertyPath: m_Name
       value: TruckFull_Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 100592, guid: b75c006e8d3c40f489e8548fa0c775ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400592, guid: b75c006e8d3c40f489e8548fa0c775ab, type: 3}
       propertyPath: m_LocalPosition.x

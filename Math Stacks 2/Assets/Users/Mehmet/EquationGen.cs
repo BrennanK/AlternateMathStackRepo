@@ -27,6 +27,8 @@ public class EquationGen : MonoBehaviour
     private Scene curScene;
     private string SceneName;
     private bool startGame;
+    private Tape tape;
+    public bool triggerTape;
     public void Awake ()
 
     {
@@ -36,6 +38,8 @@ public class EquationGen : MonoBehaviour
         CallGrade();
 
         currLevel = GameManager.Instance.currLevels;
+        tape = FindObjectOfType<Tape>().GetComponent<Tape>();
+        triggerTape = true;
     }
 
     public void Update()
@@ -51,8 +55,18 @@ public class EquationGen : MonoBehaviour
             CallGrade();
             currLevel = GameManager.Instance.currLevels;
         }
-
-   
+        /*
+        if (currLevel == 4 || currLevel == 5)
+        {
+            if (triggerTape)
+            {
+                Debug.Log("trigger this function !!!!");
+                triggerTape = false;
+                Invoke("StartTaping", 0.2f);
+            }
+        }
+   */
+     
 
 
     }
@@ -157,6 +171,10 @@ public class EquationGen : MonoBehaviour
             FourthandFifth();
     }
 
+    private void StartTaping()
+    {
+        tape.testgroup();
+    }
     private void Kindergarden()
     {
         firstNum = Random.Range(1, 10);
@@ -184,12 +202,14 @@ public class EquationGen : MonoBehaviour
         ThirdNum = Random.Range(1, 11);
         index = Random.Range(0, opperand.Length);
         index2 = Random.Range(0, opperand.Length);
+
     }
 
     public void Evaluate()
     {
         if (!isK)
         {
+            tape.tapeing = false;
             if (index == 0) //Addition
             {
                 tmpHolder = firstNum + SecondNum;
@@ -216,6 +236,7 @@ public class EquationGen : MonoBehaviour
             }
             else if (index == 1) //Subtraction
             {
+                tape.tapeing = false;
                 if (firstNum > SecondNum) //preventing negative numbers
                 {
                     tmpHolder = firstNum - SecondNum;
@@ -238,6 +259,7 @@ public class EquationGen : MonoBehaviour
             }
             else if (index == 2) //Multiplication
             {
+                tape.tapeing = false;
                 tmpHolder = firstNum * SecondNum;
                 if (!isFifth || !isFourth) //Because of order of operation 
                 {
@@ -262,6 +284,7 @@ public class EquationGen : MonoBehaviour
             }
             else if (index == 3) //Division 
             {
+                tape.tapeing = false;
                 if (firstNum % SecondNum == 0
                 ) //Using Modulus to find if the remainder is equal to 0, thus concluding that the two numbers are divisible 
                 {
@@ -295,6 +318,7 @@ public class EquationGen : MonoBehaviour
 
             if (isFourth || isFifth)
             {
+                tape.tapeing = true;
                 if (index2 == 0) //Second Addition
                 {
                     answer = tmpHolder + ThirdNum;
@@ -429,6 +453,7 @@ public class EquationGen : MonoBehaviour
         }
         else
         {
+            
             if (index == 1 && index2 != 1)
             {
                 if (firstNum > SecondNum)

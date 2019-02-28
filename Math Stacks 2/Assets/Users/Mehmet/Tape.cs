@@ -3,6 +3,8 @@
 // Date: 2/1/2019
 // Last Edited By: 
 // Last Edited Date: 2/7/2019
+
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,6 +31,14 @@ public class Tape : MonoBehaviour
     private float tmpy2;
     private TutorialK TK;
     public AudioSource tapeAu;
+    private Boxcount BC;
+    public bool startTape;
+
+    public bool tapeing;
+
+    public bool startfunciton;
+    //public GameObject[] boxlist = new GameObject[9];
+    public List<GameObject> boxlist= new List<GameObject>();
     public void EnableTapeMode()
     {
         GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
@@ -54,6 +64,141 @@ public class Tape : MonoBehaviour
         _lineRenderer.material = lineMat;
         _lineRenderer.SetWidth(0.2f, 0.2f);
         _lineRenderer.enabled = false;
+        BC = FindObjectOfType<Boxcount>().GetComponent<Boxcount>();
+        startTape = true;
+        tapeing = false;
+        startfunciton = true;
+    }
+
+    public void ClearList()
+    {
+
+        boxlist.Clear();
+        Debug.Log("list Clear");
+    }
+    public void testgroup()
+    {
+        for (int x = 0; x<BC.boxs.Count; x++)
+        {
+            boxlist.Add(BC.boxs[x]);
+        }
+        for (int i = 1; i < 4-BC.specialboxs.Count; i++)
+        {
+            int rand = Random.Range(0, boxlist.Count);
+            if (rand < boxlist.Count - 1)
+            {
+                Box1 = boxlist[rand];
+                Box2 = boxlist[rand + 1];
+                boxlist.RemoveAt(rand);
+                boxlist.RemoveAt(rand+1);
+                Boxtmp();
+            }
+            else
+            {
+                Box1 = boxlist[0];
+                Box1 = boxlist[1];
+                boxlist.RemoveAt(0);
+                boxlist.RemoveAt(1);
+                Boxtmp();
+            }
+        }
+        
+        startTape = true;
+        boxlist.Clear();
+    }
+    
+    private void Boxtmp()
+    {
+        if (Box1 != null && Box2 != null)
+        {
+            tmpx1 = Box1.transform.position.x;
+            tmpx2 = Box2.transform.position.x;
+            tmpy1 = Box1.transform.position.y;
+            tmpy2 = Box2.transform.position.y;
+
+            midPoint = new Vector3((tmpx1 + tmpx2) / 2, (tmpy1 + tmpy2) / 2, Box1.transform.position.z);
+            Debug.Log("midpoint long " + midPoint);
+            ConnectBox();
+
+        }
+        else
+        {
+            Debug.Log("Some boxes not found");
+        }
+    }
+    private void ConnectBox()
+    {
+        if (Box1 != null && Box2 != null)
+        {
+            var Difx = Mathf.Abs(tmpx2 - tmpx1);
+            var Dify = Mathf.Abs(tmpy2 - tmpy1);
+            var Distance = (Box1.transform.position - Box2.transform.position).magnitude;
+            if (Distance < minDistance)
+            {
+                empty = new GameObject();
+                empty.transform.position = midPoint;
+                empty.AddComponent<MeshRenderer>();
+                if (Difx > 1 && Dify < 1)
+                {
+                    empty.AddComponent<BoxCollider>();
+                    empty.GetComponent<BoxCollider>().size = new Vector3(2.85f, 1.38f, 1.77f);
+                    Box1.transform.position = new Vector3(Box1.transform.position.x, empty.transform.position.y,
+                        Box1.transform.position.z);
+                    Box2.transform.position = new Vector3(Box2.transform.position.x, empty.transform.position.y,
+                        Box2.transform.position.z);
+                    _tape = Instantiate(tape, empty.transform.position, Quaternion.identity);
+                }
+                else if (Difx < 1 && Dify > 1)
+                {
+                    empty.AddComponent<BoxCollider>();
+                    empty.GetComponent<BoxCollider>().size = new Vector3(1.38f, 2.85f, 1.77f);
+                    Box1.transform.position = new Vector3(empty.transform.position.x, Box1.transform.position.y,
+                        Box1.transform.position.z);
+                    Box2.transform.position = new Vector3(empty.transform.position.x, Box2.transform.position.y,
+                        Box2.transform.position.z);
+                    _tape = Instantiate(tape, empty.transform.position, Quaternion.Euler(0, 0, 90));
+                }
+                else
+                {
+                    Destroy(empty);
+                    isTapeOn = false;
+                    Box1 = null;
+                    Box2 = null;
+                    return;
+                }
+
+                empty.AddComponent<Rigidbody>();
+                empty.GetComponent<Rigidbody>().constraints =
+                    RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+                empty.AddComponent<BoxController>();
+                empty.AddComponent<GroupedBox>();
+
+                _tape.transform.position = new Vector3(_tape.transform.position.x, _tape.transform.position.y,
+                    _tape.transform.position.z + 1);
+                _tape.transform.parent = empty.transform;
+                Box1.transform.parent = empty.transform;
+                Box2.transform.parent = empty.transform;
+                Destroy(Box1.GetComponent<Rigidbody>());
+                Destroy(Box2.GetComponent<Rigidbody>());
+                Box1.GetComponent<BoxCollider>().isTrigger = true;
+                Box2.GetComponent<BoxCollider>().isTrigger = true;
+                Destroy(Box1.GetComponent<BoxController>());
+                Destroy(Box2.GetComponent<BoxController>());
+
+                Box1 = null;
+                Box2 = null;
+                foreach (var box in boxes) box.GetComponent<BoxController>().enabled = true;
+                isTapeOn = false;
+            }
+            else
+            {
+                Box2 = null;
+                Box1 = null;
+            }
+
+        }
+
+
     }
 
     private void Press()
@@ -214,6 +359,27 @@ public class Tape : MonoBehaviour
                 {
                     Box2 = null;
                     Box1 = null;
+                }
+            }
+        }
+        if (startTape)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+
+                startTape = false;
+                testgroup();
+            }
+        }
+
+        if (tapeing)
+        {
+            if (GameManager.Instance.currLevels == 4 || GameManager.Instance.currLevels == 5)
+            {
+                if (startfunciton)
+                {
+                    startfunciton = false;
+                    Invoke("testgroup", 0.1f);
                 }
             }
         }

@@ -61,6 +61,9 @@ public class MenuManager : MonoBehaviour
     public Timer stopTime;
 
     private bool equationgen;
+
+    private Boxcount BC;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +87,7 @@ public class MenuManager : MonoBehaviour
         //Exh = FindObjectOfType<Exhaust>().GetComponent<Exhaust>();
         Gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
         //stopTime = GameObject.Find("UI Screens").GetComponent<Timer>();
+        
     }
 
     void Update()
@@ -148,6 +152,8 @@ public class MenuManager : MonoBehaviour
         goback = true;
         equationgen = true;
         stopTime.TheWorld = true;// in timer 
+        BC = FindObjectOfType<Boxcount>().GetComponent<Boxcount>();
+        BC.DeletAll();
         if (MainMenu.activeSelf == false)
         {
 
@@ -273,8 +279,11 @@ public class MenuManager : MonoBehaviour
 
                 Eqg.StartShow();
                 equationgen = false;
+                tape.startfunciton = true;
+                
             }
-
+            tape.ClearList();
+            tape.startTape = true;
         }
     }
 

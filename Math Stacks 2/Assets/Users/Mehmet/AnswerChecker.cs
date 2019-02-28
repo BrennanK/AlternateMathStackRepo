@@ -21,7 +21,7 @@ public class AnswerChecker : MonoBehaviour
     private int correctAnswers = 0;
     bool changeColor;
     private TutorialK TK;
-
+    private Tape tape;
     private void Awake()
     {
         TK = FindObjectOfType<TutorialK>().GetComponent<TutorialK>();
@@ -33,6 +33,7 @@ public class AnswerChecker : MonoBehaviour
         spwn = GameObject.Find("SpawnEngine").GetComponent<BoxSpawner>();
         stmp = GameObject.Find("UI Screens").GetComponent<StampGen>();
         scre = GameObject.Find("Score Bar").GetComponent<Score>();
+        tape = GetComponent<Tape>();
         changeColor = false;
     }
 
@@ -80,8 +81,7 @@ public class AnswerChecker : MonoBehaviour
                 correctAnswers++;
                 scre.score += 10;
                 timer.time += 10f;
-                
-
+                //tape.startfunciton = true;
                 if (correctAnswers >= 10)
                 {
                     scre.score += 100;

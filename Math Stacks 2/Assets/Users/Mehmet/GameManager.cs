@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject Minus;
     public GameObject Multiply;
     public GameObject Divide;
+    private Tape tape;
+    private Boxcount BC;
     private void Awake()
     {
         if (Instance == null)
@@ -109,5 +111,9 @@ public class GameManager : MonoBehaviour
     public void CorrectAnswer() //Regenerates an equation 
     {
         EG.CallGrade();
+        tape = FindObjectOfType<Tape>().GetComponent<Tape>();
+        tape.startfunciton = true;
+        BC = FindObjectOfType<Boxcount>().GetComponent<Boxcount>();
+        BC.DeletAll();
     }
 }

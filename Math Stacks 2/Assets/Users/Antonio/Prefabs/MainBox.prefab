@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 7227116100982704465}
   - component: {fileID: 7227116100982704464}
   - component: {fileID: 8262287410820401696}
+  - component: {fileID: 360105680534708237}
   m_Layer: 9
   m_Name: MainBox
   m_TagString: Draggable
@@ -205,6 +206,18 @@ MonoBehaviour:
   isBeingHeld: 0
   pickAu: {fileID: 5953411615678552537}
   droupAu: {fileID: 5953411614156122360}
+--- !u!114 &360105680534708237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227116100982704469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975d6cb946393cf40941868cda3667e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7227116101922300846
 GameObject:
   m_ObjectHideFlags: 0

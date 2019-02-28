@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 1899902503}
   - component: {fileID: 7269781195468506638}
   - component: {fileID: 7111765379895363518}
+  - component: {fileID: 8487672388063768404}
   m_Layer: 0
   m_Name: K_3Box
   m_TagString: Draggable
@@ -403,6 +404,18 @@ MonoBehaviour:
   isBeingHeld: 0
   pickAu: {fileID: 7279856589564030382}
   droupAu: {fileID: 7279856587898985615}
+--- !u!114 &8487672388063768404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899902499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975d6cb946393cf40941868cda3667e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2423353751960526076
 GameObject:
   m_ObjectHideFlags: 0

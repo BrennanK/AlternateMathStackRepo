@@ -9,28 +9,47 @@ public class ButtonSetter : MonoBehaviour
 
     private GameManager GM;
 
-    private void Update()
+    private void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
-        if (GM.currLevels == 0 || GM.currLevels == 1 || GM.currLevels == 2)
+    private void Update()
+    {
+        if (GM.currLevels == 0)
         {
             ScissorsButton.SetActive(false);
-        }
-
-        if (GM.currLevels == 3 || GM.currLevels == 4 || GM.currLevels == 5)
-        {
-            ScissorsButton.SetActive(true);
-        }
-
-        if (GM.currLevels == 0 || GM.currLevels == 1)
-        {
             TapeButton.SetActive(false);
         }
 
-        if (GM.currLevels == 2 || GM.currLevels == 3 || GM.currLevels == 4 || GM.currLevels == 5)
+        if (GM.currLevels == 1)
+        {
+            ScissorsButton.SetActive(false);
+            TapeButton.SetActive(false);
+        }
+
+        if (GM.currLevels == 2)
+        {
+            ScissorsButton.SetActive(false);
+            TapeButton.SetActive(true);
+        }
+
+        if (GM.currLevels == 3)
         {
             ScissorsButton.SetActive(true);
+            TapeButton.SetActive(true);
+        }
+
+        if (GM.currLevels == 4)
+        {
+            ScissorsButton.SetActive(true);
+            TapeButton.SetActive(true);
+        }
+
+        if (GM.currLevels == 5)
+        {
+            ScissorsButton.SetActive(true);
+            TapeButton.SetActive(true);
         }
     }
 }

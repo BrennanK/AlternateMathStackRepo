@@ -104,14 +104,30 @@ public class BoxController : MonoBehaviour
             Vector3 WorldPosition = Camera.main.ScreenToWorldPoint(CurrentPosition);
             
             //Debug.Log("object position" + WorldPosition);
-            if (WorldPosition.x > -7 && WorldPosition.y > 0 && WorldPosition.x < 7 && WorldPosition.y < 7.5)
+            if (WorldPosition.x > -7 && WorldPosition.y > 0 && WorldPosition.x < 6 && WorldPosition.y < 7.5)
             {
-                transform.position = WorldPosition;
-                lockPosition = WorldPosition;
-                TK.BoxMove();
+                if (WorldPosition.x >-1.05 && WorldPosition.x <6 && WorldPosition.y > 0 & WorldPosition.y < 3)
+                {
+                    transform.position = lockPosition;
+                    Debug.Log("DO not enter");
+                }
+                else
+                {
+                    
+                    transform.position = WorldPosition;
+                    lockPosition = WorldPosition;
+                    TK.BoxMove();
+                }
             }
-            
+
             //if (WorldPosition.x <= -7 && WorldPosition.y < 0.5 && WorldPosition.x > 7 && WorldPosition.y > 7.5)
+            /*
+            else if (WorldPosition.x >-7 && WorldPosition.x < -2 && WorldPosition.y>0 & WorldPosition.y<4)
+            {
+                transform.position = lockPosition;
+                Debug.Log("DO not enter");
+            }
+            */
             else
             {
                 transform.position = lockPosition;

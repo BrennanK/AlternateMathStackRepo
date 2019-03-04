@@ -90,7 +90,7 @@ public class Tape : MonoBehaviour
                 Box1 = boxlist[rand];
                 Box2 = boxlist[rand + 1];
                 boxlist.RemoveAt(rand);
-                boxlist.RemoveAt(rand+1);
+                boxlist.RemoveAt(rand);
                 Boxtmp();
             }
             else
@@ -98,7 +98,7 @@ public class Tape : MonoBehaviour
                 Box1 = boxlist[0];
                 Box1 = boxlist[1];
                 boxlist.RemoveAt(0);
-                boxlist.RemoveAt(1);
+                boxlist.RemoveAt(0);
                 Boxtmp();
             }
         }

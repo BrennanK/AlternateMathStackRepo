@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject Minus;
     public GameObject Multiply;
     public GameObject Divide;
+    public GameObject tapeButton;
+    public GameObject scissorButton;
     private Tape tape;
     private Boxcount BC;
     private void Awake()
@@ -51,30 +53,42 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 LabelButton.SetActive(false);
+                tapeButton.SetActive(false);
+                scissorButton.SetActive(false);
                 break;
             case 1:
                 LabelButton.SetActive(false);
+                tapeButton.SetActive(false);
+                scissorButton.SetActive(false);
                 break;
             case 2:
                 LabelButton.SetActive(true);
+                tapeButton.SetActive(true);
+                scissorButton.SetActive(true);
                 Minus.SetActive(false);
                 Multiply.SetActive(false);
                 Divide.SetActive(false);
                 break;
             case 3:
                 LabelButton.SetActive(true);
+                tapeButton.SetActive(true);
+                scissorButton.SetActive(true);
                 Minus.SetActive(true);
                 Multiply.SetActive(false);
                 Divide.SetActive(false);
                 break;
             case 4:
                 LabelButton.SetActive(true);
+                tapeButton.SetActive(true);
+                scissorButton.SetActive(true);
                 Minus.SetActive(true);
                 Multiply.SetActive(true);
                 Divide.SetActive(false);
                 break;
             case 5:
                 LabelButton.SetActive(true);
+                tapeButton.SetActive(true);
+                scissorButton.SetActive(true);
                 Minus.SetActive(true);
                 Multiply.SetActive(true);
                 Divide.SetActive(true);
@@ -82,7 +96,9 @@ public class GameManager : MonoBehaviour
                 break;
            default:
                LabelButton.SetActive(true);
-               break;
+               tapeButton.SetActive(true);
+               scissorButton.SetActive(true);
+                break;
 
         }
     }

@@ -6919,6 +6919,8 @@ MonoBehaviour:
   Minus: {fileID: 2739691462726553507}
   Multiply: {fileID: 2739691462726553506}
   Divide: {fileID: 2739691462726553505}
+  tapeButton: {fileID: 750755}
+  scissorButton: {fileID: 754635790}
 --- !u!4 &2127291628
 Transform:
   m_ObjectHideFlags: 0

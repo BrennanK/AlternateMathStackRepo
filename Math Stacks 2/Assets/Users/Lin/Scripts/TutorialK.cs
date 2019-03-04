@@ -186,8 +186,17 @@ public class TutorialK : MonoBehaviour
     {
         if (popUpIndex == 1)
         {
+            if (currentlevel >= 2)
+            {
+                popUpIndex++;
+            }
 
-            popUpIndex++;
+            if (currentlevel < 2)
+            {
+                popUpIndex = 11;
+                Debug.Log("junp to 11");
+            }
+            //popUpIndex++;
         }
     }
     public void UseTape()
@@ -219,17 +228,8 @@ public class TutorialK : MonoBehaviour
     {
         if (popUpIndex == 5)
         {
-            if (currentlevel >= 2)
-            {
-                popUpIndex++;
-            }
-
-            if (currentlevel < 2)
-            {
-                popUpIndex = 11;
-                Debug.Log("junp to 11");
-            }
-            //popUpIndex++;
+           
+            popUpIndex++;
         }
     }
     public void UseStamp()

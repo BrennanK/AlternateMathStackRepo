@@ -4266,6 +4266,7 @@ GameObject:
   - component: {fileID: 1739184910}
   - component: {fileID: 1266768868}
   - component: {fileID: 1440343114}
+  - component: {fileID: 3765921371321980749}
   m_Layer: 5
   m_Name: UI Screens NEW
   m_TagString: Untagged
@@ -4425,6 +4426,20 @@ MonoBehaviour:
   slider: {fileID: 1149078597135265846}
   TheWorld: 0
 --- !u!114 &1440343114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883628778124056401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9114350a314b04189a049ccb927fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScissorsButton: {fileID: 1149078597447777099}
+  TapeButton: {fileID: 1149078595970050823}
+--- !u!114 &3765921371321980749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5611,8 +5626,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 7116301628869957613}
   m_HandleRect: {fileID: 7116301629301331684}
   m_Direction: 0
-  m_MinValue: -50
-  m_MaxValue: 20
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 1
   m_Value: 10
   m_OnValueChanged:
@@ -6170,7 +6185,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 7116301629050972982}
   m_HandleRect: {fileID: 7116301628402881014}
   m_Direction: 0
-  m_MinValue: -50
+  m_MinValue: -80
   m_MaxValue: 0
   m_WholeNumbers: 1
   m_Value: 0
@@ -7159,15 +7174,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4050976644020354260}
     m_Modifications:
-    - target: {fileID: 3314951673331322471, guid: 16f3973a71538954090c8ad126ccf583,
+    - target: {fileID: 2610863440442970661, guid: 16f3973a71538954090c8ad126ccf583,
         type: 3}
       propertyPath: m_Name
-      value: Game Screen
+      value: Score Bar
       objectReference: {fileID: 0}
-    - target: {fileID: 3314951673331322471, guid: 16f3973a71538954090c8ad126ccf583,
+    - target: {fileID: 2610863440442970661, guid: 16f3973a71538954090c8ad126ccf583,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3314951673331322470, guid: 16f3973a71538954090c8ad126ccf583,
         type: 3}
@@ -7274,25 +7289,15 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3314951672549512271, guid: 16f3973a71538954090c8ad126ccf583,
+    - target: {fileID: 3314951673331322471, guid: 16f3973a71538954090c8ad126ccf583,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.0015182
+      propertyPath: m_Name
+      value: Game Screen
       objectReference: {fileID: 0}
-    - target: {fileID: 3314951672549512271, guid: 16f3973a71538954090c8ad126ccf583,
+    - target: {fileID: 3314951673331322471, guid: 16f3973a71538954090c8ad126ccf583,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314951672549512271, guid: 16f3973a71538954090c8ad126ccf583,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 480.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314951672549512271, guid: 16f3973a71538954090c8ad126ccf583,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 320
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3314951673620273725, guid: 16f3973a71538954090c8ad126ccf583,
         type: 3}
@@ -7329,6 +7334,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314951674060916896, guid: 16f3973a71538954090c8ad126ccf583,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314951672549512271, guid: 16f3973a71538954090c8ad126ccf583,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0015182
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314951672549512271, guid: 16f3973a71538954090c8ad126ccf583,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314951672549512271, guid: 16f3973a71538954090c8ad126ccf583,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 480.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314951672549512271, guid: 16f3973a71538954090c8ad126ccf583,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 3314951673634810898, guid: 16f3973a71538954090c8ad126ccf583,
         type: 3}
@@ -7650,16 +7680,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 8.15
       objectReference: {fileID: 0}
-    - target: {fileID: 2610863440442970661, guid: 16f3973a71538954090c8ad126ccf583,
-        type: 3}
-      propertyPath: m_Name
-      value: Score Bar
-      objectReference: {fileID: 0}
-    - target: {fileID: 2610863440442970661, guid: 16f3973a71538954090c8ad126ccf583,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3314951673620273726, guid: 16f3973a71538954090c8ad126ccf583,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -7682,16 +7702,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3314951673975521570, guid: 16f3973a71538954090c8ad126ccf583,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314951673975521570, guid: 16f3973a71538954090c8ad126ccf583,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314951673975521570, guid: 16f3973a71538954090c8ad126ccf583,
-        type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 2.5
       objectReference: {fileID: 0}
@@ -7699,11 +7709,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 104.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314951674060916896, guid: 16f3973a71538954090c8ad126ccf583,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3314951672305348064, guid: 16f3973a71538954090c8ad126ccf583,
         type: 3}
@@ -8689,16 +8694,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4050976644020354260}
     m_Modifications:
-    - target: {fileID: 5141940756525590094, guid: f3e40ba7d0dd700428a889d8df827337,
-        type: 3}
-      propertyPath: m_Name
-      value: Title Screen
-      objectReference: {fileID: 0}
-    - target: {fileID: 5141940756525590094, guid: f3e40ba7d0dd700428a889d8df827337,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5141940756525590093, guid: f3e40ba7d0dd700428a889d8df827337,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8803,6 +8798,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5141940756525590094, guid: f3e40ba7d0dd700428a889d8df827337,
+        type: 3}
+      propertyPath: m_Name
+      value: Title Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5141940756525590094, guid: f3e40ba7d0dd700428a889d8df827337,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3e40ba7d0dd700428a889d8df827337, type: 3}

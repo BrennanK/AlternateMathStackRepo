@@ -9,18 +9,12 @@ using UnityEditor;
 public class SoundUpdater : MonoBehaviour
 {
     public AudioMixer audioMix;
-    //[SerializeField] Slider MasterSlider;
     [SerializeField] Slider[] BGMSlider;
     [SerializeField] Slider[] FXSlider;
+    [SerializeField] Toggle inGameToggle;
 
     public bool Muted;
     private bool menuPause;
-        //private bool menuBack;
-    /*
-    private float mu1;
-    private float mu2;
-    private float mu3;
-    */
     public AudioMixerSnapshot normal;
     public AudioMixerSnapshot pause;
     private float bgmVolume;
@@ -28,9 +22,9 @@ public class SoundUpdater : MonoBehaviour
     private bool volumeT = true;
     private bool changing1 = false;
     private bool changing2 = false;
+
     private void Start()
     {
-        //MasterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
         BGMSlider[0].value = PlayerPrefs.GetFloat("MusicVolume");
         FXSlider[0].value = PlayerPrefs.GetFloat("SoundVolume");
         
@@ -39,17 +33,11 @@ public class SoundUpdater : MonoBehaviour
         FXSlider[1].value = PlayerPrefs.GetFloat("SoundVolume");
         
         //audioMix.SetFloat("MasterVolume", MasterSlider.value);
-        audioMix.SetFloat("MusicVolume", BGMSlider[0].value);
-        audioMix.SetFloat("SoundVolume", FXSlider[0].value);
+        audioMix.SetFloat("MusicVolume", BGMSlider[0].value = 0f);
+        audioMix.SetFloat("SoundVolume", FXSlider[0].value = 0f);
         
         audioMix.SetFloat("MusicVolume", BGMSlider[1].value);
         audioMix.SetFloat("SoundVolume", FXSlider[1].value);
-        
-        /*
-        mu1 = MasterSlider.value;
-        mu2 = BGMSlider.value;
-        mu3 = FXSlider.value;
-        */
     }
 
     private void Update()
@@ -64,13 +52,11 @@ public class SoundUpdater : MonoBehaviour
                 fxVolume = FXSlider[1].value;
                 volumeT = false;
             }
-            //audioMix.SetFloat("MasterVolume", MasterSlider.value = -50f);
-            audioMix.SetFloat("MusicVolume", BGMSlider[0].value = -50f);
-            audioMix.SetFloat("SoundVolume", FXSlider[0].value = -50f);
-            /*
-            audioMix.SetFloat("MusicVolume", BGMSlider[1].value = -50f);
-            audioMix.SetFloat("SoundVolume", FXSlider[1].value = -50f);
-            */
+
+            audioMix.SetFloat("MusicVolume", BGMSlider[0].value = -80f);
+            audioMix.SetFloat("SoundVolume", FXSlider[0].value = -80f);
+
+            inGameToggle.isOn = true;
         }
 
         if (changing1)
@@ -88,26 +74,6 @@ public class SoundUpdater : MonoBehaviour
             audioMix.SetFloat("SoundVolume", FXSlider[0].value);
             changing2 = false;
         }
-
-
-
-        /*
-        if (menuPause == true)
-        {
-            audioMix.SetFloat("MasterVolume", MasterSlider.value = -10f);
-            audioMix.SetFloat("MusicVolume", BGMSlider.value = -10f);
-            audioMix.SetFloat("SoundVolume", FXSlider.value = -10f);
-            menuPause = false;
-        }
-
-        if (menuBack == true)
-        {
-            audioMix.SetFloat("MasterVolume", MasterSlider.value = 10f);
-            audioMix.SetFloat("MusicVolume", BGMSlider.value = 10f);
-            audioMix.SetFloat("SoundVolume", FXSlider.value = 10f);
-            menuBack = false;
-        }
-        */
     }
 
     public void Pause(bool pp)
@@ -116,13 +82,7 @@ public class SoundUpdater : MonoBehaviour
         menuPause = pp;
         Lowpass(menuPause);
     }
-    /*
-    public void VolumeBack(bool pause)
-    {
-        
-        menuBack = pause;
-    }
-    */
+ 
     private void Lowpass(bool pp)
     {
         if (pp)
@@ -133,11 +93,6 @@ public class SoundUpdater : MonoBehaviour
         {
             normal.TransitionTo(0.05f);
         }
-    }
-    public void SetMaster()
-    {
-        //audioMix.SetFloat("MasterVolume", MasterSlider.value);
-        //PlayerPrefs.SetFloat("MasterVolume", MasterSlider.value);
     }
 
     public void SetBGM()
@@ -177,16 +132,19 @@ public class SoundUpdater : MonoBehaviour
     {
         if (Muted == false)
         {
+            inGameToggle.isOn = true;
             Muted = true;
         }
         else
         {
-            Muted = false;
             audioMix.SetFloat("MusicVolume", BGMSlider[0].value = bgmVolume);
             audioMix.SetFloat("SoundVolume", FXSlider[0].value = fxVolume);
             audioMix.SetFloat("MusicVolume", BGMSlider[1].value = bgmVolume);
             audioMix.SetFloat("SoundVolume", FXSlider[1].value = fxVolume);
             volumeT = true;
+            inGameToggle.isOn = false;
+            Muted = false;
+
         }
     }
 }

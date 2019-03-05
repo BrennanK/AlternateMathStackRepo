@@ -50,6 +50,11 @@ MonoBehaviour:
   isTapeOn: 0
   lineMat: {fileID: 2100000, guid: a8237bbcafaa0864187cf7f920a6c1e0, type: 2}
   tape: {fileID: 2396228578560035322, guid: 58e36f601a933804c8224444f166c033, type: 3}
+  tapeAu: {fileID: 0}
+  startTape: 0
+  tapeing: 0
+  startfunciton: 0
+  boxlist: []
 --- !u!114 &182748107424183827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,3 +72,4 @@ MonoBehaviour:
   - {fileID: 0}
   GrpBox: {fileID: 0}
   isScissorsOn: 0
+  cutAu: {fileID: 0}

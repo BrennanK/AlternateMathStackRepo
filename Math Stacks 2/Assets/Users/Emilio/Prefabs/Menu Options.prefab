@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 535233286938637582}
   m_HandleRect: {fileID: 535233286858589627}
   m_Direction: 0
-  m_MinValue: -50
+  m_MinValue: -80
   m_MaxValue: 0
   m_WholeNumbers: 1
   m_Value: 0
@@ -1928,10 +1928,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 472834278381165815}
   m_HandleRect: {fileID: 472834277826061295}
   m_Direction: 0
-  m_MinValue: -50
-  m_MaxValue: 20
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 1
-  m_Value: 20
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2205,7 +2205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8081304851948869381}
   m_Layer: 0
-  m_Name: Menu Options 1
+  m_Name: Menu Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2218,7 +2218,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8081304851948869382}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -26, y: -3.5, z: 206.1}
   m_LocalScale: {x: 0.028665213, y: 0.028665213, z: 0.028665213}
   m_Children:

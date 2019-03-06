@@ -105,6 +105,7 @@ public class LabelsController : MonoBehaviour
             }
         }
 
+        Sci.disableKinematic = false;
         isLabelMoving = false;
     }
 

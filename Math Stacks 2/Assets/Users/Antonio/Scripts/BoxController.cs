@@ -52,6 +52,7 @@ public class BoxController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
+        rb.isKinematic = false;
         _tape = FindObjectOfType<Tape>().GetComponent<Tape>();
         mng = GameObject.Find("UI Screens").GetComponent<MenuManager>();
 

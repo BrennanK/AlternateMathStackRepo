@@ -39,6 +39,8 @@ public class GroupedBox : MonoBehaviour
                                 RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
                             box.gameObject.AddComponent<BoxController>();
+                            box.gameObject.GetComponent<BoxController>().isStop = true;
+                            box.GetComponent<Rigidbody>().isKinematic = true;
                         }
                     }
                 }

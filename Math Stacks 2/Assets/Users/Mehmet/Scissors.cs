@@ -16,6 +16,7 @@ public class Scissors : MonoBehaviour
     private Ray rayForward;
     private TutorialK TK;
     public AudioSource cutAu;
+    public bool disableKinematic;
     public void EnableScissorMode()
     {
         GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
@@ -98,7 +99,11 @@ public class Scissors : MonoBehaviour
             foreach (var box in boxes)
             {
                 box.GetComponent<BoxController>().enabled = true;
-                box.GetComponent<Rigidbody>().isKinematic = false;
+                if (!disableKinematic)
+                {
+
+                    box.GetComponent<Rigidbody>().isKinematic = false;
+                }
             }
 
         }

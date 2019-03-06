@@ -38,6 +38,7 @@ public class BoxController : MonoBehaviour
     public AudioSource pickAu;
     public AudioSource droupAu;
     private bool soundPlay = true;
+    public bool isStop;
     private void Awake()
     {
         TK = FindObjectOfType<TutorialK>().GetComponent<TutorialK>();
@@ -50,6 +51,7 @@ public class BoxController : MonoBehaviour
         Debug.DrawRay(rayDown.origin, rayDown.direction * 1, Color.blue);
 
         rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
         _tape = FindObjectOfType<Tape>().GetComponent<Tape>();
         mng = GameObject.Find("UI Screens").GetComponent<MenuManager>();
 
@@ -68,19 +70,31 @@ public class BoxController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isBeingHeld)
+        if (isStop)
         {
-           
-            rb.velocity += new Vector3(0f, -9.81f * Time.fixedDeltaTime, 0f);
+            rb.velocity = new Vector3(0,0,0);
         }
+        else
+        {
+            if (!isBeingHeld)
+            {
 
-        if (rb.velocity.y >= -5f)
-        {
-            rb.velocity = new Vector3(0f, -5f, 0f);
-            
+                rb.velocity += new Vector3(0f, -9.81f * Time.fixedDeltaTime, 0f);
+            }
+
+            if (rb.velocity.y >= -5f)
+            {
+                rb.velocity = new Vector3(0f, -5f, 0f);
+
+            }
         }
+        
     }
 
+    public void KinematicON()
+    {
+        rb.isKinematic = true;
+    }
     private void OnMouseDown()
     {
         if (enabled && !mng.Paused && _tape.isTapeOn != true)
@@ -142,7 +156,7 @@ public class BoxController : MonoBehaviour
     {
         if (enabled && !mng.Paused && _tape.isTapeOn != true)
         {
-            rb.useGravity = true;
+            //rb.useGravity = true;
             gameObject.GetComponent<BoxCollider>().isTrigger = false;
             SortingOrder = 0;
 
@@ -151,7 +165,7 @@ public class BoxController : MonoBehaviour
             {
                 if (hit.transform.tag == "Ground")
                 {
-                    rb.useGravity = false;
+                    //rb.useGravity = false;
                 }
             }
         }
@@ -160,6 +174,11 @@ public class BoxController : MonoBehaviour
     }
     public void OnCollisionEnter(Collision other)
     {
+        if (other.gameObject.tag == "Draggable")
+        {
+            isBeingHeld = true;
+        }
+
         if (soundPlay)
         {
             soundPlay = false;

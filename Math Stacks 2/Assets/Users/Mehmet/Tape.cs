@@ -306,7 +306,7 @@ public class Tape : MonoBehaviour
                     if (Difx > 1 && Dify < 1)
                     {
                         empty.AddComponent<BoxCollider>();
-                        empty.GetComponent<BoxCollider>().size = new Vector3(2.85f, 1.38f, 1.77f);
+                        empty.GetComponent<BoxCollider>().size = new Vector3(3.0f, 1.43f, 1.77f);
                         Box1.transform.position = new Vector3(Box1.transform.position.x, empty.transform.position.y,
                             Box1.transform.position.z);
                         Box2.transform.position = new Vector3(Box2.transform.position.x, empty.transform.position.y,
@@ -316,7 +316,7 @@ public class Tape : MonoBehaviour
                     else if (Difx < 1 && Dify > 1)
                     {
                         empty.AddComponent<BoxCollider>();
-                        empty.GetComponent<BoxCollider>().size = new Vector3(1.38f, 2.85f, 1.77f);
+                        empty.GetComponent<BoxCollider>().size = new Vector3(1.43f, 3.0f, 1.77f);
                         Box1.transform.position = new Vector3(empty.transform.position.x, Box1.transform.position.y,
                             Box1.transform.position.z);
                         Box2.transform.position = new Vector3(empty.transform.position.x, Box2.transform.position.y,

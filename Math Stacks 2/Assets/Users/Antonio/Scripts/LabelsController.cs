@@ -18,6 +18,7 @@ public class LabelsController : MonoBehaviour
 
     private bool stopAll;
     private TutorialK TK;
+    private Scissors Sci;
     void Awake()
     {
         if (LCInstance == null)
@@ -35,6 +36,7 @@ public class LabelsController : MonoBehaviour
         stmp = GameObject.Find("UI Screens").GetComponent<StampGen>();
         _tape = FindObjectOfType<Tape>().GetComponent<Tape>();
         stopAll = false;
+        Sci = FindObjectOfType<Scissors>().GetComponent<Scissors>();
     }
 
     private void OnMouseDown()
@@ -57,6 +59,7 @@ public class LabelsController : MonoBehaviour
             var WorldPosition = Camera.main.ScreenToWorldPoint(CurrentPosition);
             transform.position = WorldPosition;
             isLabelMoving = true;
+            Sci.disableKinematic = true;
         }
     }
 

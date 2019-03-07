@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public GameObject scissorButton;
     private Tape tape;
     private Boxcount BC;
+    public float timer;
+
     private void Awake()
     {
         if (Instance == null)
@@ -35,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-       
+        timer += Time.deltaTime;
         curScene = SceneManager.GetActiveScene();
         sceneName = curScene.name;
         if (sceneName == "Test_Scene")
@@ -111,9 +113,7 @@ public class GameManager : MonoBehaviour
     public void LevelSelect(int level) //Sets current level selected 
     {
         currLevels = level;
-        
         SceneManager.LoadScene("Test_Scene");
-    
     }
 
     public void GradeSelect()

@@ -7880,6 +7880,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 3314951673975521570, guid: 16f3973a71538954090c8ad126ccf583,
         type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314951673975521570, guid: 16f3973a71538954090c8ad126ccf583,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314951673975521570, guid: 16f3973a71538954090c8ad126ccf583,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 2.5
       objectReference: {fileID: 0}
@@ -8153,7 +8163,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ff8be67bb6a6f4c78b0071137c7715c6,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3314951672653559599, guid: 16f3973a71538954090c8ad126ccf583, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 16f3973a71538954090c8ad126ccf583, type: 3}
 --- !u!114 &1149078595921206569 stripped
 MonoBehaviour:
@@ -8232,6 +8243,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MSCredit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568186735682636709, guid: 1a1fdc206db6f0847a13acbc1f30c488,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7568186735682636708, guid: 1a1fdc206db6f0847a13acbc1f30c488,
         type: 3}
@@ -8511,8 +8527,7 @@ PrefabInstance:
 
         Audio'
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7568186734964750818, guid: 1a1fdc206db6f0847a13acbc1f30c488, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a1fdc206db6f0847a13acbc1f30c488, type: 3}
 --- !u!224 &5693340899992628760 stripped
 RectTransform:
@@ -8913,11 +8928,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Title Screen
-      objectReference: {fileID: 0}
-    - target: {fileID: 5141940756525590094, guid: f3e40ba7d0dd700428a889d8df827337,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5141940756525590093, guid: f3e40ba7d0dd700428a889d8df827337,
         type: 3}

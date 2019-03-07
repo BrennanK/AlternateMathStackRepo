@@ -246,6 +246,9 @@ public class MenuManager : MonoBehaviour
     {
         if (InGameOverlay.activeSelf == false)
         {
+            Time.timeScale = 1;
+            Paused = false;
+
             stopTime.TheWorld = false;
             IsMainMenu = false;
 
@@ -255,6 +258,7 @@ public class MenuManager : MonoBehaviour
             PauseScreen.SetActive(false);
             Labels.SetActive(false);
             InGameOverlay.SetActive(true);
+            GameOver.SetActive(false);
             tape.ResetTape();
             scissors.ResecScissor();
             if (!musicTriger)

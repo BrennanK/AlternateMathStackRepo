@@ -130,7 +130,7 @@ public class AnswerChecker : MonoBehaviour
         }
     }
 
-    private void ColorSwapper()
+    public void ColorSwapper()
     {
         EG.EquationText.color = Color.Lerp(EG.EquationText.color, Color.white, 0.01f);
     }

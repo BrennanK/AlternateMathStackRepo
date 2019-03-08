@@ -232,6 +232,8 @@ public class MenuManager : MonoBehaviour
         Gm.GradeSelect();
         if (GradeSelect.activeSelf == false)
         {
+            Invoke("WaitGradeSelect", 0.08f);
+            /*
             MainMenu.SetActive(false);
             GradeSelect.SetActive(false);//change
             Options.SetActive(false);
@@ -239,7 +241,19 @@ public class MenuManager : MonoBehaviour
             InGameOverlay.SetActive(false);
             Labels.SetActive(false);
             Time.timeScale = 1;
+            */
         }
+    }
+
+    private void WaitGradeSelect()
+    {
+        MainMenu.SetActive(false);
+        GradeSelect.SetActive(false);//change
+        Options.SetActive(false);
+        PauseScreen.SetActive(false);
+        InGameOverlay.SetActive(false);
+        Labels.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void InGameOverlayActive()

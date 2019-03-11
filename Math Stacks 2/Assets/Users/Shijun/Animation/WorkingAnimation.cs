@@ -15,9 +15,12 @@ public class WorkingAnimation : MonoBehaviour
     // Start is called before the first frame update
     public WorkAnimation workAnimation;
 
+    public SwitchActive switchActive;
+
     void Start()
     {
         workAnimation = FindObjectOfType<WorkAnimation>().GetComponent<WorkAnimation>();
+        switchActive = FindObjectOfType<SwitchActive>().GetComponent<SwitchActive>();
     }
 
     // Update is called once per frame
@@ -25,8 +28,16 @@ public class WorkingAnimation : MonoBehaviour
     {
         
     }
+
     public void ChangeWorkAnimation() {
         workAnimation.ChangeAnimation();
+        Debug.Log("Send ChangeAnimation()");
+    }
+
+    public void SetDeactivateBoxStack()
+    {
+        switchActive.DeactivateBoxStack();
+        Debug.Log("Send DeactivateBoxStack()");
     }
 
 }

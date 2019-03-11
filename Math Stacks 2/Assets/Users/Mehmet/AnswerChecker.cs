@@ -101,7 +101,7 @@ public class AnswerChecker : MonoBehaviour
                     // Debug.Log(temp[i]);
                     if (temp[i].name == "Animator")
                     {
-                        Debug.Log(temp[i]);
+                        // Debug.Log(temp[i]);
                         workAnimation = temp[i].GetComponent<WorkAnimation>();
                         workAnimation.isAnimating = true;
                         //temp[i].GetComponent<WorkAnimation>().isAnimating = true;

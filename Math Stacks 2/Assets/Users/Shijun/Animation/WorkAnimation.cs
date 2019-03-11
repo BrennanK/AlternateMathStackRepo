@@ -20,6 +20,8 @@ public class WorkAnimation : MonoBehaviour
     public bool isAnimating;
     private bool trigger;
 
+    public bool testTrigger;
+
     private void Start()
     {
         //animator = GetComponent<Animator>();
@@ -28,22 +30,30 @@ public class WorkAnimation : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space) && !isAnimating)
-        //{
-        //    animator.SetBool("isAnimating", true);
-        //    isAnimating = true;
-        //}
-        //else if(Input.GetKeyDown(KeyCode.Space) && isAnimating)
-        //{
-        //    animator.SetBool("isAnimating", false);
-        //    isAnimating = false;
-        //}
+
+        // Use for test the animation by pressign Space
+        if (trigger && testTrigger)
+        {
+            
+            if (Input.GetKeyDown(KeyCode.Space) && !isAnimating)
+            {
+                // Equal with after checking the resualts in AnswerChecker.cs
+                isAnimating = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.Space) && isAnimating)
+            {
+            }
+        }
+
+        
         if (trigger)
         {
 
             if (isAnimating)
             {
                 animator.SetBool("isAnimating", true);
+                Debug.Log("Play the Walking Animation");
+
                 trigger = false;
                 isAnimating = false;
                 Debug.Log("Turn Off Trigger & isAnimation");
@@ -58,6 +68,7 @@ public class WorkAnimation : MonoBehaviour
         }
         */
     }
+
     public void ChangeAnimation() {
 
         trigger = true;

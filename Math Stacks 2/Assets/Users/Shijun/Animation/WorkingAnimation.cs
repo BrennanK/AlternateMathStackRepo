@@ -25,7 +25,7 @@ public class WorkingAnimation : MonoBehaviour
     {
         
     }
-    public void ChangeAM() {
+    public void ChangeWorkAnimation() {
         workAnimation.ChangeAnimation();
     }
 

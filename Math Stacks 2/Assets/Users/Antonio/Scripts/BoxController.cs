@@ -40,7 +40,7 @@ public class BoxController : MonoBehaviour
     private bool soundPlay = true;
     public bool isStop;
     public ParticleSystem dust;
-
+    public GameObject dustCloud;
     private void Awake()
     {
         //dust.GetComponent<ParticleSystem>();
@@ -70,7 +70,7 @@ public class BoxController : MonoBehaviour
         pickAu = pick.GetComponent<AudioSource>();
         GameObject drop = GameObject.Find("Drop");
         droupAu = drop.GetComponent<AudioSource>();
-        GameObject dustCloud = GameObject.Find("DustCloud");
+        dustCloud = GameObject.Find("DustCloud");
         dust = dustCloud.GetComponent<ParticleSystem>();
     }
 
@@ -180,6 +180,9 @@ public class BoxController : MonoBehaviour
     }
     public void OnCollisionEnter(Collision other)
     {
+        Vector3 position = this.transform.position;
+        
+        dustCloud.transform.position = this.transform.position;
         if (other.gameObject.tag == "Draggable")
         {
             isBeingHeld = true;

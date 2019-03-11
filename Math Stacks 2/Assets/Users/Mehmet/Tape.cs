@@ -362,15 +362,18 @@ public class Tape : MonoBehaviour
                 }
             }
         }
+        /*
         if (startTape)
         {
+            
             if (Input.GetKeyDown(KeyCode.Escape))
             {
 
                 startTape = false;
                 testgroup();
             }
-        }
+            
+        }*/
 
         if (tapeing)
         {

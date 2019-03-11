@@ -1519,7 +1519,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193056755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.400306, y: 11.502247, z: -11.722903}
+  m_LocalPosition: {x: -3, y: 3, z: -39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1711864140}
@@ -1541,6 +1541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1711864138}
   isAnimating: 0
+  testTrigger: 0
 --- !u!1 &1229093999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,7 +1634,7 @@ GameObject:
   - component: {fileID: 1347633497}
   - component: {fileID: 1347633496}
   m_Layer: 0
-  m_Name: TempPlatform
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1647,8 +1648,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347633494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.821, y: -8.599, z: -27.489998}
-  m_LocalScale: {x: 13, y: 1.578, z: 1}
+  m_LocalPosition: {x: 0.6, y: -0.1, z: 0}
+  m_LocalScale: {x: 13, y: 1.6, z: 1}
   m_Children: []
   m_Father: {fileID: 1193056756}
   m_RootOrder: 1
@@ -2040,6 +2041,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2013496773643668829, guid: f0166b4b2c43ff64a80a2d67583ee55b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -5.9000244
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0166b4b2c43ff64a80a2d67583ee55b, type: 3}
 --- !u!1 &1522785062
@@ -2400,8 +2406,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711864137}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -20, y: -6.2, z: -27.43}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -10, y: 2.3, z: 0}
   m_LocalScale: {x: 0.18, y: 0.18, z: 1}
   m_Children:
   - {fileID: 1663093126}
@@ -2420,7 +2426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88f5207041ee0548b5ccbdae5fa661c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WA: {fileID: 0}
+  workAnimation: {fileID: 0}
 --- !u!1001 &1731022294
 PrefabInstance:
   m_ObjectHideFlags: 0

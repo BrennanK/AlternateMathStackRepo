@@ -39,8 +39,11 @@ public class BoxController : MonoBehaviour
     public AudioSource droupAu;
     private bool soundPlay = true;
     public bool isStop;
+    public ParticleSystem dust;
+
     private void Awake()
     {
+        //dust.GetComponent<ParticleSystem>();
         TK = FindObjectOfType<TutorialK>().GetComponent<TutorialK>();
         meshRenderer = gameObject.GetComponent<MeshRenderer>();
         meshRenderer.sortingLayerName = SortingLayerName;
@@ -67,6 +70,8 @@ public class BoxController : MonoBehaviour
         pickAu = pick.GetComponent<AudioSource>();
         GameObject drop = GameObject.Find("Drop");
         droupAu = drop.GetComponent<AudioSource>();
+        GameObject dustCloud = GameObject.Find("DustCloud");
+        dust = dustCloud.GetComponent<ParticleSystem>();
     }
 
     private void FixedUpdate()
@@ -184,6 +189,7 @@ public class BoxController : MonoBehaviour
         {
             soundPlay = false;
             droupAu.Play();
+            dust.Play();
             StartCoroutine("WaitTime", 0.5f);
 
         }

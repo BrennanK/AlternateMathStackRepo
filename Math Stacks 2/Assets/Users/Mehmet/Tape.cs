@@ -72,7 +72,6 @@ public class Tape : MonoBehaviour
 
     public void ClearList()
     {
-
         boxlist.Clear();
         Debug.Log("list Clear");
     }

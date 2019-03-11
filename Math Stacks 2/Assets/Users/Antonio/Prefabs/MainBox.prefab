@@ -206,6 +206,8 @@ MonoBehaviour:
   isBeingHeld: 0
   pickAu: {fileID: 5953411615678552537}
   droupAu: {fileID: 5953411614156122360}
+  isStop: 0
+  dust: {fileID: 0}
 --- !u!114 &360105680534708237
 MonoBehaviour:
   m_ObjectHideFlags: 0

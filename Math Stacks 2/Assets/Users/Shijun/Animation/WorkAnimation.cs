@@ -3,6 +3,12 @@
 // Date: 03/08/2019
 // Last Edited By: 
 // Last Edited Date: 
+
+/*
+ * 动画的控制器，
+ * trigger用来确定是否开启动画
+ * isAnimaton用来定义播放动画的状态
+ */
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,7 +46,7 @@ public class WorkAnimation : MonoBehaviour
                 animator.SetBool("isAnimating", true);
                 trigger = false;
                 isAnimating = false;
-                Debug.Log("AnimatorTrue");
+                Debug.Log("Turn Off Trigger & isAnimation");
             }
         }
         /*

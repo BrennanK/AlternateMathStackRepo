@@ -1,11 +1,12 @@
 ﻿// Author: Mehmet Holbert
 // Description: Generates Equations based on Current selected Grade Level and well Evaluates them for Answer Checker Script.
 // Date: 1/16/2019
-// Last Edited By: 
-// Last Edited Date: 1/21/2019
+// Last Edited By: Shijn Guo
+// Last Edited Date: 03/08/2019 add animator;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnswerChecker : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class AnswerChecker : MonoBehaviour
     bool changeColor;
     private TutorialK TK;
     private Tape tape;
+
+    // reference for animation in background
+    public GameObject movingWalker;
+    private WorkAnimation workAnimation;
+   
     private void Awake()
     {
         TK = FindObjectOfType<TutorialK>().GetComponent<TutorialK>();
@@ -87,6 +93,22 @@ public class AnswerChecker : MonoBehaviour
                     scre.score += 100;
                     correctAnswers = 0;
                 }
+
+                // Trigger of Animator in Test_Scene
+                GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    // Debug.Log(temp[i]);
+                    if (temp[i].name == "Animator")
+                    {
+                        Debug.Log(temp[i]);
+                        workAnimation = temp[i].GetComponent<WorkAnimation>();
+                        workAnimation.isAnimating = true;
+                        //temp[i].GetComponent<WorkAnimation>().isAnimating = true;
+                        //FindObjectOfType<WorkAnimation>().GetComponent<WorkAnimation>().isAnimating = true;
+                    }
+                }
+
             }
 
             else

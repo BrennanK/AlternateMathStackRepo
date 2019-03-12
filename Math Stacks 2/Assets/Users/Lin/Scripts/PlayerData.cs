@@ -18,4 +18,5 @@ public class PlayerData
         tutorialI = Ttk.tutorialNum;
         Debug.Log("changed number "+ tutorialI);
     }
+
 }

@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
 
     public GameObject Staging;
     public GameObject OptionsDash;
+    public GameObject HighScore;
 
     public string mainMenu;
 
@@ -63,7 +64,8 @@ public class MenuManager : MonoBehaviour
     private bool equationgen;
 
     private Boxcount BC;
-
+    private TruckScore TS;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -87,7 +89,8 @@ public class MenuManager : MonoBehaviour
         //Exh = FindObjectOfType<Exhaust>().GetComponent<Exhaust>();
         Gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
         //stopTime = GameObject.Find("UI Screens").GetComponent<Timer>();
-        
+        TS = FindObjectOfType<TruckScore>().GetComponent<TruckScore>();
+
     }
 
     void Update()
@@ -193,6 +196,7 @@ public class MenuManager : MonoBehaviour
                     OptionsDash.SetActive(false);
                     Staging.SetActive(true);
                     MainMenu.SetActive(true);
+                    HighScore.SetActive(false);
                 }
                 else
                 {
@@ -202,6 +206,7 @@ public class MenuManager : MonoBehaviour
                     PauseScreen.SetActive(false);
                     InGameOverlay.SetActive(false);
                     Labels.SetActive(false);
+                    HighScore.SetActive(false);
                 }
             }
             else
@@ -215,6 +220,7 @@ public class MenuManager : MonoBehaviour
 
                 OptionsDash.SetActive(false);
                 Staging.SetActive(true);
+                HighScore.SetActive(false);
             }
 
             //CameraTransitions = FindObjectOfType<Animator>().GetComponent<Animator>();
@@ -226,6 +232,19 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void ShowHighScore()
+    {
+        MainMenu.SetActive(false);
+
+        TS.TruckChangePosition();
+
+        HighScore.SetActive(true);
+    }
+
+    public void BackToMain()
+    {
+        TS.TruckChangeBack();
+    }
     public void GradeSelectActive()
     {
         //CameraTransitions.SetBool("MenuTOGrade", true);

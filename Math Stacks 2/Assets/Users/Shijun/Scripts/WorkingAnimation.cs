@@ -22,7 +22,7 @@ public class WorkingAnimation : MonoBehaviour
     {
         workAnimation = FindObjectOfType<WorkAnimation>().GetComponent<WorkAnimation>();
         switchActive = FindObjectOfType<SwitchActive>().GetComponent<SwitchActive>();
-        boxStackAnimation = GameObject.Find("BoxStack_Animation");
+        //boxStackAnimation = GameObject.Find("BoxStack_Animation");
         //Debug.Log(boxStackAnimation);
     }
 

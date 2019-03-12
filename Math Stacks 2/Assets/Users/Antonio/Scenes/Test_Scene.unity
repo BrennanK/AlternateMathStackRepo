@@ -940,7 +940,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHidding: 0
-  isNotHidding: 1
 --- !u!1 &585096689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,6 +2823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   workAnimation: {fileID: 0}
   switchActive: {fileID: 0}
+  boxStackAnimation: {fileID: 554542753}
 --- !u!1001 &1731022294
 PrefabInstance:
   m_ObjectHideFlags: 0

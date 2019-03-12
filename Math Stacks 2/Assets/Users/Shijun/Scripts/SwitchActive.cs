@@ -19,7 +19,7 @@ public class SwitchActive : MonoBehaviour
         {
             //BOXES.SetActive(false);
             this.gameObject.SetActive(false);
-            isHidding = true;
+            isHidding = false;
         }
         //else if (!isHidding)
         //{

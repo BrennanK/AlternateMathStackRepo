@@ -8,22 +8,16 @@ public class SwitchActive : MonoBehaviour
     //public GameObject BOXES;
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Equal with after checking the resualts in AnswerChecker.cs
-            DeactivateBoxStack();
-        }
-
-
         if (isHidding)
         {
             //BOXES.SetActive(false);
             this.gameObject.SetActive(false);
             isHidding = false;
         }
-        //else if (!isHidding)
+        //if (Input.GetKeyDown(KeyCode.Space))
         //{
-        //    this.gameObject.SetActive(true);
+        //    // Equal with after checking the resualts in AnswerChecker.cs
+        //    DeactivateBoxStack();
         //}
     }
 

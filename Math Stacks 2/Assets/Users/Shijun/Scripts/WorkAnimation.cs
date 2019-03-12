@@ -52,11 +52,11 @@ public class WorkAnimation : MonoBehaviour
             if (isAnimating)
             {
                 animator.SetBool("isAnimating", true);
-                Debug.Log("Play the Walking Animation");
+                //Debug.Log("Play the Walking Animation");
 
                 trigger = false;
                 isAnimating = false;
-                Debug.Log("Turn Off Trigger & isAnimation");
+                //Debug.Log("Turn Off Trigger & isAnimation");
             }
         }
         /*

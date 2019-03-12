@@ -33,13 +33,13 @@ public class WorkingAnimation : MonoBehaviour
 
     public void ChangeWorkAnimation() {
         workAnimation.ChangeAnimation();
-        Debug.Log("Send ChangeAnimation()");
+        //Debug.Log("Send ChangeAnimation()");
     }
 
     public void SetDeactivateBoxStack()
     {
         switchActive.DeactivateBoxStack();
-        Debug.Log("Send DeactivateBoxStack()");
+        //Debug.Log("Send DeactivateBoxStack()");
     }
 
     public void SetActivateBoxStack()

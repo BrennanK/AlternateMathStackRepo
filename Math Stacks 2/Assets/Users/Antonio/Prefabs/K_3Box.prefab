@@ -405,7 +405,8 @@ MonoBehaviour:
   pickAu: {fileID: 7279856589564030382}
   droupAu: {fileID: 7279856587898985615}
   isStop: 0
-  dust: {fileID: 0}
+  dustCloud: {fileID: 6801193882605198507, guid: e21850f1159ff1943b7a467417a2243d,
+    type: 3}
 --- !u!114 &8487672388063768404
 MonoBehaviour:
   m_ObjectHideFlags: 0

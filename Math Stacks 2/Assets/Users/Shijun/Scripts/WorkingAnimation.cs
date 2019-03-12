@@ -12,18 +12,20 @@ using UnityEngine;
 
 public class WorkingAnimation : MonoBehaviour
 {
-    // Start is called before the first frame update
     public WorkAnimation workAnimation;
 
     public SwitchActive switchActive;
+
+    public GameObject boxStackAnimation;
 
     void Start()
     {
         workAnimation = FindObjectOfType<WorkAnimation>().GetComponent<WorkAnimation>();
         switchActive = FindObjectOfType<SwitchActive>().GetComponent<SwitchActive>();
+        boxStackAnimation = GameObject.Find("BoxStack_Animation");
+        //Debug.Log(boxStackAnimation);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -40,4 +42,8 @@ public class WorkingAnimation : MonoBehaviour
         Debug.Log("Send DeactivateBoxStack()");
     }
 
+    public void SetActivateBoxStack()
+    {
+        boxStackAnimation.SetActive(true);
+    }
 }

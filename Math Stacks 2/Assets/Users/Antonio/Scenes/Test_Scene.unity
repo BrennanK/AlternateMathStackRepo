@@ -940,6 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHidding: 0
+  isNotHidding: 1
 --- !u!1 &585096689
 GameObject:
   m_ObjectHideFlags: 0

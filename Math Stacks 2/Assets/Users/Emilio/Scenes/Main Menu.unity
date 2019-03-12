@@ -6778,7 +6778,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789763465}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.0826664, y: 1.4878407, z: 4.0243835}
+  m_LocalPosition: {x: -3.08, y: 1.48, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1584036362}
@@ -6802,6 +6802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   truck: {fileID: 0}
+  viewCamera: {fileID: 0}
   scoreBoards:
   - {fileID: 1028493035}
   - {fileID: 1373908671}
@@ -8104,7 +8105,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -13.725, y: -0.000011523}
+  m_AnchoredPosition: {x: -13.725, y: -0.000011444092}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1683653928

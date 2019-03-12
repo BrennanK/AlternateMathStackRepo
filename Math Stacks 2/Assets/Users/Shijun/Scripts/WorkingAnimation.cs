@@ -15,8 +15,9 @@ public class WorkingAnimation : MonoBehaviour
     public WorkAnimation workAnimation;
 
     public SwitchActive switchActive;
-
     public GameObject boxStackAnimation;
+
+    public TruckAnimation truckAnimation;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class WorkingAnimation : MonoBehaviour
         switchActive = FindObjectOfType<SwitchActive>().GetComponent<SwitchActive>();
         //boxStackAnimation = GameObject.Find("BoxStack_Animation");
         //Debug.Log(boxStackAnimation);
+        truckAnimation = FindObjectOfType<TruckAnimation>().GetComponent<TruckAnimation>();
     }
 
     void Update()
@@ -45,5 +47,10 @@ public class WorkingAnimation : MonoBehaviour
     public void SetActivateBoxStack()
     {
         boxStackAnimation.SetActive(true);
+    }
+
+    public void SetUpTruck()
+    {
+        truckAnimation.isAnimating = true;
     }
 }

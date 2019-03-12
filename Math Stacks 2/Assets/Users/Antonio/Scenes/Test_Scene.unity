@@ -1189,6 +1189,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 791725798}
+  - component: {fileID: 791725799}
+  - component: {fileID: 791725800}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Untagged
@@ -1212,6 +1214,39 @@ Transform:
   m_Father: {fileID: 362129828}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &791725799
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791725797}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 825cbaf06dc52ef4c8d27e28e035b84c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &791725800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791725797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8c3354f7b9f0b4db07d60f616e1872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 791725799}
+  isAnimating: 0
 --- !u!1 &808536459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3673726096063818816, guid: 0d47ce0680915de47a2affb8fd4a2ba6,
@@ -2824,6 +2859,7 @@ MonoBehaviour:
   workAnimation: {fileID: 0}
   switchActive: {fileID: 0}
   boxStackAnimation: {fileID: 554542753}
+  truckAnimation: {fileID: 0}
 --- !u!1001 &1731022294
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -76,7 +76,9 @@ public class Score : MonoBehaviour
         }
 
         // Update the score to the PlayerPrefs
-        // It should not check the high score every frame
+            // It should not check the high score every frame
+            // But I do not know the places where the AnswerChecker add the score in this script
+            // Or I could add the mathod after the change of the score
         CheckHighScore();
         // Print high scores
         if (Input.GetKeyDown("space") && printHighScore)
@@ -84,7 +86,7 @@ public class Score : MonoBehaviour
             foreach (var level in levelList)
                 if (!PlayerPrefs.HasKey(level))
                 {
-                    Debug.Log("The high score not exist");
+                    Debug.Log("The high score does not exist");
                 }
                 else
                 {

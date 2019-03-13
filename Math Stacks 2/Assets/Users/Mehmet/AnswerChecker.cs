@@ -94,6 +94,9 @@ public class AnswerChecker : MonoBehaviour
                     correctAnswers = 0;
                 }
 
+                // Update the score to the PlayerPrefs
+                scre.CheckHighScore();
+
                 // Trigger of Animator in Test_Scene
                 GameObject[] temp = SceneManager.GetSceneByName("Test_Scene").GetRootGameObjects();
                 for (int i = 0; i < temp.Length; i++)

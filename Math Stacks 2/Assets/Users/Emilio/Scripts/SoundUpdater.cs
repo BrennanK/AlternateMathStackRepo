@@ -34,7 +34,7 @@ public class SoundUpdater : MonoBehaviour
         
         //audioMix.SetFloat("MasterVolume", MasterSlider.value);
         audioMix.SetFloat("MusicVolume", BGMSlider[0].value = 0f);
-        audioMix.SetFloat("SoundVolume", FXSlider[0].value = 0f);
+        audioMix.SetFloat("SoundVolume", FXSlider[0].value = 20f);
         
         audioMix.SetFloat("MusicVolume", BGMSlider[1].value);
         audioMix.SetFloat("SoundVolume", FXSlider[1].value);

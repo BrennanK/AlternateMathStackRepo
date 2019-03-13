@@ -103,7 +103,27 @@ public class Score : MonoBehaviour
     // Check the highest score and save it.
     public void CheckHighScore()
     {
-        currentHighScore = PlayerPrefs.GetInt("highScore_level0");
+        switch (level)
+        {
+            case 0:
+                currentHighScore = PlayerPrefs.GetInt("highScore_level0");
+                break;
+            case 1:
+                currentHighScore = PlayerPrefs.GetInt("highScore_level1");
+                break;
+            case 2:
+                currentHighScore = PlayerPrefs.GetInt("highScore_level2");
+                break;
+            case 3:
+                currentHighScore = PlayerPrefs.GetInt("highScore_level3");
+                break;
+            case 4:
+                currentHighScore = PlayerPrefs.GetInt("highScore_level4");
+                break;
+            case 5:
+                currentHighScore = PlayerPrefs.GetInt("highScore_level5");
+                break;
+        }
 
         if (score > currentHighScore)
         {

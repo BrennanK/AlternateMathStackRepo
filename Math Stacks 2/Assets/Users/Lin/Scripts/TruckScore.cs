@@ -32,12 +32,13 @@ public class TruckScore : MonoBehaviour
             }
         }
         */
-        for (int i = 0; i < scoreBoards.Count; i++)
-        {
-            scoreBoards[i].text = 10.ToString();
-
-        }
-
+        
+        scoreBoards[0].text = PlayerPrefs.GetInt("highScore_level0").ToString();
+        scoreBoards[1].text = PlayerPrefs.GetInt("highScore_level1").ToString();
+        scoreBoards[2].text = PlayerPrefs.GetInt("highScore_level2").ToString();
+        scoreBoards[3].text = PlayerPrefs.GetInt("highScore_level3").ToString();
+        scoreBoards[4].text = PlayerPrefs.GetInt("highScore_level4").ToString();
+        scoreBoards[5].text = PlayerPrefs.GetInt("highScore_level5").ToString();
     }
     public void TruckChangePosition()
     {

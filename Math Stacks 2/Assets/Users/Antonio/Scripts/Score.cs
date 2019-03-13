@@ -16,8 +16,8 @@ public class Score : MonoBehaviour
     private GameManager GM;
 
     // Set the values for high scores
-    int currentHighScore;
-
+    public bool printHighScore;
+    private int currentHighScore;
     IList<string> levelList = new List<string>()
     {
         "highScore_level0",
@@ -73,7 +73,23 @@ public class Score : MonoBehaviour
                     //Invoke("StopShow", 5f);
                 }
             }
+        }
 
+        // Update the score to the PlayerPrefs
+        // It should not check the high score every frame
+        CheckHighScore();
+        // Print high scores
+        if (Input.GetKeyDown("space") && printHighScore)
+        {
+            foreach (var level in levelList)
+                if (!PlayerPrefs.HasKey(level))
+                {
+                    Debug.Log("The high score not exist");
+                }
+                else
+                {
+                    Debug.Log("The current high score in " + level + " is " + PlayerPrefs.GetInt(level));
+                };
         }
     }
 
@@ -91,6 +107,38 @@ public class Score : MonoBehaviour
     {
         currentHighScore = PlayerPrefs.GetInt("highScore_level0");
 
+        if (score > currentHighScore)
+        {
+            switch (level)
+            {
+                case 0:
+                    PlayerPrefs.SetInt("highScore_level0", score);
+                    PlayerPrefs.Save();
+                    break;
+                case 1:
+                    PlayerPrefs.SetInt("highScore_level1", score);
+                    PlayerPrefs.Save();
+                    break;
+                case 2:
+                    PlayerPrefs.SetInt("highScore_level2", score);
+                    PlayerPrefs.Save();
+                    break;
+                case 3:
+                    PlayerPrefs.SetInt("highScore_level3", score);
+                    PlayerPrefs.Save();
+                    break;
+                case 4:
+                    PlayerPrefs.SetInt("highScore_level4", score);
+                    PlayerPrefs.Save();
+                    break;
+                case 5:
+                    PlayerPrefs.SetInt("highScore_level5", score);
+                    PlayerPrefs.Save();
+                    break;
+            }
+
+            
+        }
         
     }
 }

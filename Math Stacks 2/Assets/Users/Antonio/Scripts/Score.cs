@@ -68,12 +68,16 @@ public class Score : MonoBehaviour
                 if (score > 10)
                 {
                     GradeUP.SetActive(true);
-                    //popUP.SetActive(true);
                     scoreTrigger = false;
+
                 }
             }
         }
 
+        void CallGradeUp()
+        {
+            GradeUP.SetActive(true);
+        }
         // Update the score to the PlayerPrefs > AnswerChecker
         //CheckHighScore();
         // Print high scores

@@ -37,11 +37,13 @@ public class HigherGrade : MonoBehaviour
             level5.SetActive(true);
         }
 
+        MM.Paused = true;
     }
 
     public void ContinueGame()
     {
 
+        MM.Paused = false;
         InGame.SetActive(true);
         GradeUP.SetActive(false);
     }
@@ -50,6 +52,7 @@ public class HigherGrade : MonoBehaviour
     {
 
         GradeUP.SetActive(false);
+        MM.Paused = false;
         MM.ReturnToMainMenu();
         MM.MainMenuActive();
     }

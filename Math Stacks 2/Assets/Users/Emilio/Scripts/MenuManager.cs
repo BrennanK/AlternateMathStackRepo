@@ -306,6 +306,7 @@ public class MenuManager : MonoBehaviour
             {
                 scoreZero = FindObjectOfType<Score>().GetComponent<Score>();
                 scoreZero.ScoreZero();
+                scoreZero.scoreTrigger = true;
                 goback = false;
             }
             stmp = GameObject.Find("UI Screens").GetComponent<StampGen>();

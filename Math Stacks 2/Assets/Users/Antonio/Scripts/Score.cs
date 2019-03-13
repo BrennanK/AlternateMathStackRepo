@@ -10,10 +10,11 @@ public class Score : MonoBehaviour
 {
     public int score = 0;
     [SerializeField] private Text scoreText;
-    private bool scoreTrigger = true;
+    public bool scoreTrigger = true;
     //public GameObject popUP;
     public int level;
     private GameManager GM;
+    public GameObject GradeUP;
 
     // Set the values for high scores
     public bool printHighScore;
@@ -56,21 +57,19 @@ public class Score : MonoBehaviour
         {
             if (level == 5)
             {
-                if (score > 20)
+                if (score > 10)
                 {
-                    Debug.Log("Great Job!!!!");
+                    GradeUP.SetActive(true);
                     scoreTrigger = false;
                 }
             }
             else
             {
-                if (score > 20)
+                if (score > 10)
                 {
-
-                    Debug.Log("Great Job!!!!UP Grade!!!");
+                    GradeUP.SetActive(true);
                     //popUP.SetActive(true);
                     scoreTrigger = false;
-                    //Invoke("StopShow", 5f);
                 }
             }
         }

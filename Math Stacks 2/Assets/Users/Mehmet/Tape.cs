@@ -135,6 +135,7 @@ public class Tape : MonoBehaviour
             if (Distance < minDistance)
             {
                 empty = new GameObject();
+                empty.tag = "Draggable";
                 empty.transform.position = midPoint;
                 empty.AddComponent<MeshRenderer>();
                 if (Difx > 1 && Dify < 1)

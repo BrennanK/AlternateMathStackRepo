@@ -24,7 +24,9 @@ public class BoxController : MonoBehaviour
     MeshRenderer meshRenderer;
 
     Ray rayDown;
+    Ray groupedRay;
     RaycastHit hit;
+    RaycastHit groupedHit;
 
     Rigidbody rb;
     private Tape _tape;
@@ -39,24 +41,24 @@ public class BoxController : MonoBehaviour
     public AudioSource droupAu;
     private bool soundPlay = true;
     public bool isStop;
-    //public GameObject dust;
-    public ParticleSystem dustCloud;
+    private bool canParticle;
+    private int particleCounter;
+    private ParticleSystem dustCloud;
 
     private void Awake()
     {
-        //dust.GetComponent<ParticleSystem>();
         TK = FindObjectOfType<TutorialK>().GetComponent<TutorialK>();
         meshRenderer = gameObject.GetComponent<MeshRenderer>();
         meshRenderer.sortingLayerName = SortingLayerName;
         meshRenderer.sortingOrder = SortingOrder;
 
-        //casts a ray from the center of the object
         rayDown = new Ray(transform.GetComponent<Renderer>().bounds.center, Vector3.forward);
         Debug.DrawRay(rayDown.origin, rayDown.direction * 1, Color.blue);
 
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         rb.isKinematic = false;
+        canParticle = false;
         _tape = FindObjectOfType<Tape>().GetComponent<Tape>();
         mng = GameObject.Find("UI Screens").GetComponent<MenuManager>();
 
@@ -73,8 +75,8 @@ public class BoxController : MonoBehaviour
         GameObject drop = GameObject.Find("Drop");
         droupAu = drop.GetComponent<AudioSource>();
 
-        //dustCloud = GameObject.Find("DustCloud");
-        //dust = dustCloud.GetComponent<ParticleSystem>();
+        dustCloud = Resources.Load<ParticleSystem>("DustCloud");
+        particleCounter = 0;
     }
 
     private void FixedUpdate()
@@ -83,21 +85,38 @@ public class BoxController : MonoBehaviour
         {
             rb.velocity = new Vector3(0,0,0);
         }
+
         else
         {
             if (!isBeingHeld)
             {
-
                 rb.velocity += new Vector3(0f, -9.81f * Time.fixedDeltaTime, 0f);
             }
 
             if (rb.velocity.y >= -5f)
             {
                 rb.velocity = new Vector3(0f, -5f, 0f);
-
             }
         }
-        
+    }
+
+    private void Update()
+    {
+        if (gameObject.name == "New Game Object")
+        {
+            groupedRay = new Ray(transform.GetComponent<Renderer>().bounds.center, Vector3.down * 2.5f);
+            Debug.DrawRay(groupedRay.origin, groupedRay.direction * 2, Color.blue);
+
+            if (Physics.Raycast(groupedRay, out groupedHit, 2f))
+            {
+                if (groupedHit.transform.tag == "Ground" && particleCounter <= 0)
+                {
+                    Instantiate(dustCloud, groupedHit.point, transform.rotation);
+                    particleCounter++;
+                    //canParticle = false;
+                }
+            }
+        }
     }
 
     public void KinematicON()
@@ -122,11 +141,9 @@ public class BoxController : MonoBehaviour
     {
         if (enabled && !mng.Paused && _tape.isTapeOn != true)
         {
-            //rb.useGravity = false;
             Vector3 CurrentPosition = new Vector3(Input.mousePosition.x - positionX, Input.mousePosition.y - positionY, distance.z);
             Vector3 WorldPosition = Camera.main.ScreenToWorldPoint(CurrentPosition);
             
-            //Debug.Log("object position" + WorldPosition);
             if (WorldPosition.x > -7 && WorldPosition.y > 0 && WorldPosition.x < 6 && WorldPosition.y < 7.5)
             {
                 if (WorldPosition.x >-1.05 && WorldPosition.x <6 && WorldPosition.y > 0 & WorldPosition.y < 3)
@@ -134,27 +151,18 @@ public class BoxController : MonoBehaviour
                     transform.position = lockPosition;
                     Debug.Log("DO not enter");
                 }
+
                 else
                 {
-                    
                     transform.position = WorldPosition;
                     lockPosition = WorldPosition;
                     TK.BoxMove();
                 }
             }
 
-            //if (WorldPosition.x <= -7 && WorldPosition.y < 0.5 && WorldPosition.x > 7 && WorldPosition.y > 7.5)
-            /*
-            else if (WorldPosition.x >-7 && WorldPosition.x < -2 && WorldPosition.y>0 & WorldPosition.y<4)
-            {
-                transform.position = lockPosition;
-                Debug.Log("DO not enter");
-            }
-            */
             else
             {
                 transform.position = lockPosition;
-                
             }
         }
 
@@ -165,37 +173,20 @@ public class BoxController : MonoBehaviour
     {
         if (enabled && !mng.Paused && _tape.isTapeOn != true)
         {
-            //rb.useGravity = true;
             gameObject.GetComponent<BoxCollider>().isTrigger = false;
             SortingOrder = 0;
-
-            //checks if the ray hits something at 1 distance
-            if (Physics.Raycast(rayDown, out hit, 1))
-            {
-                if (hit.transform.tag == "Ground")
-                {
-                    //rb.useGravity = false;
-                }
-            }
         }
 
         isBeingHeld = false;
+        particleCounter--;
     }
     public void OnCollisionEnter(Collision other)
     {
         Vector3 position = this.transform.position;
 
-        //dustCloud.transform.position = this.transform.position;
         if (other.gameObject.tag == "Draggable")
         {
             isBeingHeld = true;
-        }
-
-        if (soundPlay)
-        {
-            soundPlay = false;
-            droupAu.Play();
-            StartCoroutine("WaitTime", 0.5f);
         }
 
         if (other.gameObject.tag != "Draggable")
@@ -204,6 +195,13 @@ public class BoxController : MonoBehaviour
             {
                 Instantiate(dustCloud.gameObject, transform.position - new Vector3(0, 0.7f, -1f), transform.rotation);
             }
+        }
+
+        if (soundPlay)
+        {
+            soundPlay = false;
+            droupAu.Play();
+            StartCoroutine("WaitTime", 0.5f);
         }
     }
 

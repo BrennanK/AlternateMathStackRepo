@@ -6,6 +6,8 @@ TagManager:
   tags:
   - BoxHolder
   - Draggable
+  - GroupedBox
+  - Ground
   layers:
   - Default
   - TransparentFX

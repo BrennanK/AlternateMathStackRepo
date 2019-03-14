@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 948583864684765672}
   - component: {fileID: 6801193882605198507}
+  - component: {fileID: 1686287095607501810}
   - component: {fileID: 7516566549897612386}
   m_Layer: 0
   m_Name: DustCloud
@@ -4694,6 +4695,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1686287095607501810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2233733778778799862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba5289c235423a43bdfecbc37529be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!199 &7516566549897612386
 ParticleSystemRenderer:
   serializedVersion: 6

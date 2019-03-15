@@ -113,7 +113,6 @@ public class BoxController : MonoBehaviour
                 {
                     Instantiate(dustCloud, groupedHit.point, transform.rotation);
                     particleCounter++;
-                    //canParticle = false;
                 }
             }
         }

@@ -52,21 +52,22 @@ public class TutorialK : MonoBehaviour
     {
         PlayerData data = SaveSystem.LoadPlayer();
         Debug.Log("Save number = " + data.tutorialI);
+
         if ((int)currentlevel >= data.tutorialI)
         {
             intutorial = true;
             bpanel.SetActive(false);
             tutorialNum = (int)currentlevel + 1;
             SaveSystem.SavePlayer(this);
-            Debug.Log("Level ADD 1");
         }
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (intutorial == true)
         {
             buttons.SetActive(true);
+
             if (Time.timeScale == 1)
             {
                 panel.SetActive(true);
@@ -75,9 +76,8 @@ public class TutorialK : MonoBehaviour
                     if (i == popUpIndex)
                     {
                         popUps[i].SetActive(true);
-                        
-                        
                     }
+
                     else
                     {
                         popUps[i].SetActive(false);
@@ -91,10 +91,12 @@ public class TutorialK : MonoBehaviour
                     button = false;
                     intutorial = false;
                 }
+
                 if (button == false)
                 {
                     buttons.SetActive(false);
                 }
+
                 if (popUpIndex == 11)
                 {
                     if (Input.GetMouseButtonDown(0))
@@ -106,6 +108,7 @@ public class TutorialK : MonoBehaviour
                         }
                     }
                 }
+
                 if (popUpIndex == 12)
                 {
                     if (trigger1)
@@ -113,7 +116,6 @@ public class TutorialK : MonoBehaviour
                         trigger1 = false;
                         StartCoroutine("WaitAndChange", 3f);
                     }
-
                 }
             }
 
@@ -134,6 +136,7 @@ public class TutorialK : MonoBehaviour
                 bpanel.SetActive(false);
             }
         }
+
         if (test1)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -143,15 +146,13 @@ public class TutorialK : MonoBehaviour
                 test1 = false;
             }
         }
-
     }
+
     IEnumerator WaitAndChange(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
         popUpIndex++;
         trigger1 = true;
-
-
     }
 
     public void levelSelect(int level)
@@ -159,29 +160,29 @@ public class TutorialK : MonoBehaviour
         currentlevel = level;
         Debug.Log("Level has Changed");
     }
+
     public void InTutorial()
     {
         popUpIndex = 0;
         button = true;
         intutorial = true;
         bpanel.SetActive(false);
-        
     }
+
     public void Skip()
     {
         popUpIndex = 15;
         button = false;
-
     }
    
     public void BoxMove()
     {
         if (popUpIndex == 0)
         {
-            
-               popUpIndex++;
+             popUpIndex++;
         }
     }
+
     public void BoxEnter()
     {
         if (popUpIndex == 1)
@@ -196,79 +197,78 @@ public class TutorialK : MonoBehaviour
                 popUpIndex = 11;
                 Debug.Log("junp to 11");
             }
-            //popUpIndex++;
         }
     }
+
     public void UseTape()
     {
         if (popUpIndex == 2)
         {
-
             popUpIndex++;
         }
     }
+
     public void SuccessUseTape()
     {
         
         if (popUpIndex == 3)
         {
-
             popUpIndex++;
         }
     }
+
     public void UseScissor()
     {
         if (popUpIndex == 4)
         {
-
             popUpIndex++;
         }
     }
+
     public void ScissorCut()
     {
         if (popUpIndex == 5)
         {
-           
             popUpIndex++;
         }
     }
+
     public void UseStamp()
     {
         if (popUpIndex == 6)
         {
-            
             popUpIndex++;
         }
     }
+
     public void ClickNumber()
     {
         if (popUpIndex == 7)
         {
-
             popUpIndex++;
         }
     }
+
     public void ClickOperator()
     {
         if (popUpIndex == 8)
         {
-
             popUpIndex++;
         }
     }
+
     public void ClickCrate()
     {
         if (popUpIndex == 9)
         {
-
             popUpIndex++;
         }
     }
+
     public void PutStamp()
     {
         if (popUpIndex == 10)
         {
-
             popUpIndex++;
         }
     }

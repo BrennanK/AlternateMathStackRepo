@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
         else if (Instance != this) Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     private void Update()

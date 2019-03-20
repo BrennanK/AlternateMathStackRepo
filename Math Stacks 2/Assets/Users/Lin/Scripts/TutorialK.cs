@@ -40,6 +40,7 @@ public class TutorialK : MonoBehaviour
             tutorialNum = 0;
             SaveSystem.SavePlayer(this);
             intutorial = true;
+            timer.timeStop = true;
             Invoke("ChangeLevel", 1f);
         }
         else
@@ -58,6 +59,7 @@ public class TutorialK : MonoBehaviour
         if ((int)currentlevel >= data.tutorialI)
         {
             intutorial = true;
+            timer.timeStop = true;
             bpanel.SetActive(false);
             tutorialNum = (int)currentlevel + 1;
             SaveSystem.SavePlayer(this);
@@ -170,7 +172,7 @@ public class TutorialK : MonoBehaviour
         button = true;
         intutorial = true;
         bpanel.SetActive(false);
-        timer.timeStop = true;
+
     }
 
     public void Skip()

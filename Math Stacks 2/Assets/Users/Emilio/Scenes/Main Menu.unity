@@ -9679,6 +9679,27 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 642204638, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268212464, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953252, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1417801847, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953254, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
+      propertyPath: m_Text
+      value: "You\u2019ve really mastered this! Why don\u2019t you try the next grade
+        up?"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13f5aaa3e23a2a346ab5a0dd0cbd4d48, type: 3}
 --- !u!1 &2739691462726553505 stripped

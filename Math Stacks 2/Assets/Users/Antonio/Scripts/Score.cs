@@ -57,7 +57,7 @@ public class Score : MonoBehaviour
         {
             if (level == 5)
             {
-                if (score > 10)
+                if (score >= 450)
                 {
                     GradeUP.SetActive(true);
                     scoreTrigger = false;
@@ -65,7 +65,7 @@ public class Score : MonoBehaviour
             }
             else
             {
-                if (score > 10)
+                if (score >= 450)
                 {
                     GradeUP.SetActive(true);
                     scoreTrigger = false;

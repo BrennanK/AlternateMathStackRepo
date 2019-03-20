@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
 
     private MenuManager mng;
     public bool TheWorld;
+    public bool timeStop;
     private void Start()
     {
         mng = GameObject.Find("UI Screens").GetComponent<MenuManager>();
@@ -26,29 +27,33 @@ public class Timer : MonoBehaviour
     private void Update()
     {
         timerText.text = "Time Left: " + Mathf.Round(time);
-        time -= Time.deltaTime;
         slider.value = time;
-        if (TheWorld)
-        {
-            time = maxTime;
-        }
-        else
+        if (!timeStop)
         {
 
-            if (time <= 0)
-            {
-                time = 180f;
-                mng.GameOverActive();
-            }
-
-            if (time >= 180f)
-            {
-                time = maxTime;
-            }
-
+            time -= Time.deltaTime;
             if (TheWorld)
             {
                 time = maxTime;
+            }
+            else
+            {
+
+                if (time <= 0)
+                {
+                    time = 180f;
+                    mng.GameOverActive();
+                }
+
+                if (time >= 180f)
+                {
+                    time = maxTime;
+                }
+
+                if (TheWorld)
+                {
+                    time = maxTime;
+                }
             }
         }
     }

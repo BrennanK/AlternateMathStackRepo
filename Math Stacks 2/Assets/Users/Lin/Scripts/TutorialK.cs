@@ -23,12 +23,14 @@ public class TutorialK : MonoBehaviour
     private bool trigger1 = true;//popupindex set
     public int tutorialNum;
     public bool test1 = true;
+    private Timer timer;
     void Start()
     {
         popUpIndex = 0;
         button = true;
         panel.SetActive(false);
         bpanel.SetActive(true);
+        timer = FindObjectOfType<Timer>().GetComponent<Timer>();
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         currentlevel = GM.currLevels;
         PlayerData data = SaveSystem.LoadPlayer();
@@ -90,6 +92,7 @@ public class TutorialK : MonoBehaviour
                     bpanel.SetActive(true);
                     button = false;
                     intutorial = false;
+                    timer.timeStop = false;
                 }
 
                 if (button == false)
@@ -167,6 +170,7 @@ public class TutorialK : MonoBehaviour
         button = true;
         intutorial = true;
         bpanel.SetActive(false);
+        timer.timeStop = true;
     }
 
     public void Skip()

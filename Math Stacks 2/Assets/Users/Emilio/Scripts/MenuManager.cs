@@ -155,6 +155,7 @@ public class MenuManager : MonoBehaviour
         goback = true;
         equationgen = true;
         stopTime.TheWorld = true;// in timer 
+        stopTime.timeStop = false;
         BC = FindObjectOfType<Boxcount>().GetComponent<Boxcount>();
         BC.DeletAll();
         if (MainMenu.activeSelf == false)
